@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace comeagua
+namespace comeagua.Infra
 {
     public partial class Context : DbContext
     {
