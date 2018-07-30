@@ -200,7 +200,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infra\Tables\Tables.cs" />
+    <Compile Include="Infra\Tables\Address.cs" />
+    <Compile Include="Infra\Tables\Event.cs" />
+    <Compile Include="Infra\Tables\Guest.cs" />
+    <Compile Include="Infra\Tables\Holiday.cs" />
+    <Compile Include="Infra\Tables\Operation.cs" />
+    <Compile Include="Infra\Tables\Photo.cs" />
+    <Compile Include="Infra\Tables\Pub.cs" />
+    <Compile Include="Infra\Tables\Review.cs" />
+    <Compile Include="Infra\Tables\Tag.cs" />
+    <Compile Include="Infra\Tables\User.cs" />
+    <Compile Include="Infra\Tables\Week.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
