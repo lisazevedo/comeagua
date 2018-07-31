@@ -194,6 +194,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\FacebookController.cs" />
     <Compile Include="Infra\Context.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -203,14 +204,18 @@
     </Compile>
     <Compile Include="Infra\Tables\Address.cs" />
     <Compile Include="Infra\Tables\Event.cs" />
+    <Compile Include="Infra\Tables\Facebook\Data.cs" />
+    <Compile Include="Infra\Tables\Facebook\Picture.cs" />
     <Compile Include="Infra\Tables\Guest.cs" />
     <Compile Include="Infra\Tables\Holiday.cs" />
+    <Compile Include="Infra\Tables\Log.cs" />
     <Compile Include="Infra\Tables\Operation.cs" />
     <Compile Include="Infra\Tables\Photo.cs" />
     <Compile Include="Infra\Tables\Pub.cs" />
     <Compile Include="Infra\Tables\Review.cs" />
     <Compile Include="Infra\Tables\Tag.cs" />
     <Compile Include="Infra\Tables\User.cs" />
+    <Compile Include="Infra\Tables\Facebook\UserFacebook.cs" />
     <Compile Include="Infra\Tables\Week.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -219,10 +224,28 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\ball.png" />
+    <Content Include="assets\Beer.png" />
+    <Content Include="assets\beer2.png" />
+    <Content Include="assets\caio.jpg" />
+    <Content Include="assets\copyright.png" />
+    <Content Include="assets\criar_evento.png" />
+    <Content Include="assets\cuttedbeer%402x.png" />
+    <Content Include="assets\equipe.png" />
+    <Content Include="assets\facebook.png" />
+    <Content Include="assets\fotozona.png" />
+    <Content Include="assets\instagram.png" />
+    <Content Include="assets\leo.jpg" />
+    <Content Include="assets\lis.jpg" />
+    <Content Include="assets\Login.png" />
+    <Content Include="assets\logo.png" />
+    <Content Include="assets\logoc.png" />
+    <Content Include="assets\suaconta.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\styles_mappage.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -243,6 +266,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Content\StylesHomePage.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -252,10 +276,6 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -269,14 +289,7 @@
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\SendCode.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\SearchPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

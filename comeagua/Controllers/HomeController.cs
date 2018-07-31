@@ -10,21 +10,22 @@ namespace comeagua.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Log = Session["UserLOGIN"] == null ? "Nao logado" : Session["UserLOGIN"].ToString();
+            // Para deslogar coloca Sesson.Abort ou 
+           // Session.Abandon();
             return View();
         }
-
-        public ActionResult About()
+        //public ActionResult SearchPage()
+        //{
+        //    return View();
+        //}
+        public ActionResult SearchPage(String busca)
         {
-            ViewBag.Message = "Your application description page.";
-
+            ViewBag.Busca = busca;
+            Session["UserLOGIN"] = "Lis";
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
 
-            return View();
-        }
     }
 }

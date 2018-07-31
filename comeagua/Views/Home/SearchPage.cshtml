@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>comeagua</title>
+    <link rel="stylesheet" href="styles_mappage.css">
+    @Styles.Render("~/Content/styles_mappage.css");
+</head>
+<body>
+    
+        
+    <p>@ViewBag.Busca </p>
+    
+    <p>Resultados para: </p>
+    <input id="pac-input" class="controls" type="text" placeholder="Onde você deseja ir hoje?">
+    <div id="map"></div>
+    <script>
+      // This example adds a search box to a map, using the Google Place Autocomplete
+      // feature. People can enter geographical searches. The search box will return a
+      // pick list containing a mix of places and predicted search terms.
+
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      function queryString(parameter) {
+              var loc = location.search.substring(1, location.search.length);
+              var param_value = false;
+              var params = loc.split("&");
+              for (i=0; i<params.length;i++) {
+                  param_name = params[i].substring(0,params[i].indexOf('='));
+                  if (param_name == parameter) {
+                      param_value = params[i].substring(params[i].indexOf('=')+1)
+                  }
+              }
+              if (param_value) {
+                  return param_value;
+              }
+              else {
+                  return "Salvador";
+              }
+      }
+
+      function initAutocomplete() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -12.977749, lng: -38.5016301},
+          zoom: 13,
+          mapTypeId: 'roadmap'
+        });
+
+        var search_word = queryString("search");
+        //alert(search_word);
+        // Create the search box and link it to the UI element.
+        var input = document.getElementById('pac-input');
+
+        var searchBox = new google.maps.places.SearchBox(input);
+
+        //var e = $.Event( "keypress", { which: 13 } );
+        //$('#hidden_box').trigger(e);
+        //map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        // Bias the SearchBox results towards current map's viewport.
+        map.addListener('bounds_changed', function() {
+          searchBox.setBounds(map.getBounds());
+        });
+
+        var markers = [];
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        searchBox.addListener('places_changed', function() {
+          var places = searchBox.getPlaces(search_word);
+          console.log(places);
+          if (places.length == 0) {
+            return;
+          }
+
+          // Clear out the old markers.
+          markers.forEach(function(marker) {
+            marker.setMap(null);
+          });
+          markers = [];
+
+          // For each place, get the icon, name and location.
+          var bounds = new google.maps.LatLngBounds();
+          places.forEach(function(place) {
+            if (!place.geometry) {
+              console.log("Not founded");
+              return;
+          }
+          /*
+            var icon = {
+              url: place.icon,
+              size: new google.maps.Size(71, 71),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(17, 34),
+              scaledSize: new google.maps.Size(25, 25)
+            };
+            */
+            // Create a marker for each place.
+            markers.push(new google.maps.Marker({
+              map: map,
+              icon: 'assets/logoc.png',
+              title: place.name,
+              position: place.geometry.location
+            }));
+
+            if (place.geometry.viewport) {
+              // Only geocodes have viewport.
+              bounds.union(place.geometry.viewport);
+            } else {
+              bounds.extend(place.geometry.location);
+            }
+          });
+          map.fitBounds(bounds);
+        });
+      }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-fyXkbitiRecygiocjGqKi0V7DRG6x8o&libraries=places&callback=initAutocomplete"
+            async defer></script>
+</body>
+</html>

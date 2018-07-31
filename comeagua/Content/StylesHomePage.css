@@ -1,0 +1,266 @@
+﻿
+
+*{
+    font-family: Poppins, Helvetica, sans-serif;
+    font-size: 120%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    margin: 0px;
+    list-style: none;
+}
+
+li {
+    display: inline;
+}
+
+.btns_header {
+    margin-left: 20%;
+    margin-top: -5%;
+}
+
+.logo {
+    max-width: 100%;
+}
+
+#logo_id {
+    width: 10%;
+}
+
+#beer_id {
+    position: absolute;
+    margin-left: 50%;
+    width: 40%;
+    margin-top: -5%;
+}
+
+#suaconta_id {
+    position: absolute;
+    width: 7%;
+    margin-top: -3%;
+}
+
+#login_id {
+    position: absolute;
+    width: 7%;
+    margin-top: -3.5%;
+}
+
+.Text {
+    position: absolute;
+    margin-top: 10%;
+    margin-left: 5%;
+}
+
+.Text_title {
+    color: black;
+    font-family: sans-serif;
+    font-size: 150%;
+}
+
+.Text_desc {
+    position: absolute;
+    margin-top: 15%;
+    margin-left: 5%;
+    width: 30%;
+    font-size: 120%;
+    font-family: sans-serif;
+}
+
+.retangle {
+    position: absolute;
+    background-color: orange;
+    width: 100%;
+    height: 75%;
+    margin-top: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+#beer2_id {
+    position: absolute;
+    width: 30%;
+    margin-top: 10%;
+    margin-left: 5%;
+}
+
+.Text_event {
+    position: absolute;
+    font-family: sans-serif;
+    font-size: 140%;
+    margin-left: 50%;
+    margin-top: 15%;
+}
+
+#criar_evento_id {
+    position: absolute;
+    margin-top: 14%;
+    margin-left: 75%;
+    width: 15%;
+}
+
+.text_desc_criar_evento {
+    position: absolute;
+    color: white;
+    font-size: 120%;
+    margin-top: 22%;
+    margin-left: 50%;
+    width: 100;
+}
+
+#equipe_id {
+    position: absolute;
+    margin-left: 45%;
+    margin-top: 100%;
+}
+
+#img_caio_id {
+    position: absolute;
+    margin-left: 25%;
+    margin-top: 108%;
+    border-radius: 50%;
+    width: 10%;
+}
+
+#img_lis_id {
+    position: absolute;
+    margin-left: 45%;
+    margin-top: 108%;
+    border-radius: 50%;
+    width: 10%;
+}
+
+#img_leo_id {
+    position: absolute;
+    margin-left: 65%;
+    margin-top: 108%;
+    border-radius: 50%;
+    width: 10%;
+}
+
+.caio_equipe {
+    position: absolute;
+    color: gray;
+    margin-left: 26%;
+    margin-top: 119%;
+}
+
+.lis_equipe {
+    position: absolute;
+    color: gray;
+    margin-left: 47.5%;
+    margin-top: 119%;
+}
+
+.leo_equipe {
+    position: absolute;
+    color: gray;
+    margin-left: 69%;
+    margin-top: 119%;
+}
+
+#copyright_id {
+    position: absolute;
+    margin-top: 129%;
+    width: 6%;
+}
+
+.facebook_id {
+    position: fixed;
+    margin-top: 30%;
+    margin-left: 95%;
+    width: 25%;
+}
+
+.instagram_id:hover {
+    transform: translateX(-55%);
+    transition: 0.7s;
+}
+
+.facebook_id:hover {
+    transform: translateX(-55%);
+    transition: 0.7s;
+}
+
+.instagram_id {
+    position: fixed;
+    margin-top: 25%;
+    margin-left: 95%;
+    width: 25%;
+}
+
+/* Style the search field */
+form.example input[type=text] {
+    position: absolute;
+    padding: 15px;
+    font-size: 120%;
+    font-family: sans-serif;
+    border: 3px solid Black;
+    float: left;
+    width: 40%;
+    background: white;
+    margin-top: 35%;
+    margin-left: 20%;
+    border-radius: 30px;
+    font-family: Poppins, Helvetica, sans-serif;
+}
+
+/* Style the submit button */
+form.example button {
+    position: absolute;
+    float: left;
+    width: 5%;
+    padding: 10px;
+    background: Orange;
+    color: white;
+    font-size: 130%;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+    margin-top: 35%;
+    margin-left: 60.2%;
+    border-radius: 30px;
+}
+
+    form.example button:hover {
+    }
+
+/* Clear floats */
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.ball {
+    position: absolute;
+    animation: animate 15s linear infinite;
+    z-index: -5;
+}
+
+.ball2 {
+    position: absolute;
+    animation: animate 18s linear infinite;
+    z-index: -5;
+    left: 80%;
+}
+
+.ball3 {
+    position: absolute;
+    animation: animate 22s linear infinite;
+    z-index: -5;
+    left: 55%;
+    width: 10%;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(800%);
+    }
+
+    100% {
+        transform: translateY(-800%);
+    }
+}
+
