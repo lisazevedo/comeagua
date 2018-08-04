@@ -8,7 +8,9 @@ namespace comeagua.Infra.Tables
     public class Photo
     {
         public int ID { get; set; }
-        public DateTime Date { get; set; }
-        public string Description { get; set; }
+        public byte[] Image { get; set; }
+
+        public int UserID { get; set; }
+        public int PubID { get; set; }
     }
 }
