@@ -4,8 +4,8 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>comeagua</title>
-    <link rel="stylesheet" href="StylesHomePage.css" type="text/css">
-    <link rel="stylesheet" href="styles_mappage.css" type="text/css">
+    <link rel="stylesheet" href="../../Content/StylesHomePage.css" type="text/css">
+    <link rel="stylesheet" href="../../Content/styles_mappage.css" type="text/css">
 
     @Styles.Render("~/Content/StylesHomePage.css")
     @Styles.Render("~/Content/styles_mappage.css")
@@ -24,121 +24,128 @@
         </form>
     </header>
 
+    <p>Resultados para: @ViewBag.Busca</p>
 
-
-    <p>Resultados para: </p>
-    <input id="pac-input" class="controls" type="text" placeholder="Onde você deseja ir hoje?">
     <div id="map"></div>
     <script>
-        // This example adds a search box to a map, using the Google Place Autocomplete
-        // feature. People can enter geographical searches. The search box will return a
-        // pick list containing a mix of places and predicted search terms.
+        var map;
+        var service;
+        var infowindow;
+        var pp = "@ViewBag.Busca";
+        var listPlaces = [];
+        //Vinicity
+        function initialize() {
+            var latitude;
+            var longitude;
+            
+            var geocoder = new google.maps.Geocoder();
+            var _address = pp + " - Salvador";
 
-        // This example requires the Places library. Include the libraries=places
-        // parameter when you first load the API. For example:
-        // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+            geocoder.geocode({ 'address': _address }, function (results, status) {
 
-        function queryString(parameter) {
-            var loc = location.search.substring(1, location.search.length);
-            var param_value = false;
-            var params = loc.split("&");
-            for (i = 0; i < params.length; i++) {
-                param_name = params[i].substring(0, params[i].indexOf('='));
-                if (param_name == parameter) {
-                    param_value = params[i].substring(params[i].indexOf('=') + 1)
-                }
-            }
-            if (param_value) {
-                return param_value;
-            }
-            else {
-                return "Salvador";
-            }
-        }
+                if (status == google.maps.GeocoderStatus.OK) {
+                    latitude = parseFloat(results[0].geometry.location.lat());
+                    longitude = parseFloat(results[0].geometry.location.lng());
+                    
+                    var place = new google.maps.LatLng(latitude, longitude);
+                    console.log(place);
 
-        function initAutocomplete() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                center: { lat: -12.977749, lng: -38.5016301 },
-                zoom: 13,
-                mapTypeId: 'roadmap'
-            });
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        center: place,
+                        zoom: 17
+                    });
 
-            var search_word = queryString("search");
-            //alert(search_word);
-            // Create the search box and link it to the UI element.
-            var input = document.getElementById('pac-input');
+                    var request = {
+                        location: place,
+                        radius: '400',
+                        type: ['bar']
+                    };
 
-            var searchBox = new google.maps.places.SearchBox(input);
+                    service = new google.maps.places.PlacesService(map);
+                    service.nearbySearch(request, callback);
 
-            //var e = $.Event( "keypress", { which: 13 } );
-            //$('#hidden_box').trigger(e);
-            //map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-            // Bias the SearchBox results towards current map's viewport.
-            map.addListener('bounds_changed', function () {
-                searchBox.setBounds(map.getBounds());
-            });
-
-            var markers = [];
-            // Listen for the event fired when the user selects a prediction and retrieve
-            // more details for that place.
-            searchBox.addListener('places_changed', function () {
-                var places = searchBox.getPlaces(search_word);
-                console.log(places);
-                if (places.length == 0) {
+                } else {
+                    alert("Local não encontrado");
                     return;
                 }
 
-                // Clear out the old markers.
-                markers.forEach(function (marker) {
-                    marker.setMap(null);
-                });
-                markers = [];
-
-                // For each place, get the icon, name and location.
-                var bounds = new google.maps.LatLngBounds();
-                places.forEach(function (place) {
-                    if (!place.geometry) {
-                        console.log("Not founded");
-                        return;
-                    }
-                    /*
-                      var icon = {
-                        url: place.icon,
-                        size: new google.maps.Size(71, 71),
-                        origin: new google.maps.Point(0, 0),
-                        anchor: new google.maps.Point(17, 34),
-                        scaledSize: new google.maps.Size(25, 25)
-                      };
-                      */
-                    // Create a marker for each place.
-                    markers.push(new google.maps.Marker({
-                        map: map,
-                        icon: 'assets/logoc.png',
-                        title: place.name,
-                        position: place.geometry.location
-                    }));
-
-                    if (place.geometry.viewport) {
-                        // Only geocodes have viewport.
-                        bounds.union(place.geometry.viewport);
-                    } else {
-                        bounds.extend(place.geometry.location);
-                    }
-                });
-                map.fitBounds(bounds);
             });
         }
 
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-fyXkbitiRecygiocjGqKi0V7DRG6x8o&libraries=places&callback=initAutocomplete"
-            async defer></script>
-</body>
+        function callback(results, status) {
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+                for (var i = 0; i < results.length; i++) {
+                    var place = results[i];
+                    createMarker(results[i]);
 
+                    listPlaces.push(place);
+                }
+                
+            }
+        }
+
+        function createMarker(place) {
+            var placeLoc = place.geometry.location;
+            var marker = new google.maps.Marker({
+                map: map,
+                icon: '../../assets/logoc.png',
+                title: place.name,
+                animation: google.maps.Animation.DROP,
+                position: place.geometry.location
+            });
+
+            google.maps.event.addListener(marker, 'click', function () {
+                infowindow.setContent(place.name);
+                infowindow.open(map, this);
+            });
+        }
+
+        //Mostra todos os bares da redondeza
+        console.log(listPlaces);
+
+        function createTable(data) {
+            var html = '';
+            html += '<ol>';
+            html += '<table class="data">';
+            for (var i = 0; i < data.length; i++) {
+                html += '<li>'
+                html += data[i].name;
+                html += '                 ';
+                html += data[i].vicinity;
+                html += '</li>';
+                html += '<br/><br/>';
+            }
+            html += '</ol></table>';
+            return html;
+        }
+       
+        function insertHTML(id, html) {
+            var el = document.getElementById(id);
+
+            if (!el) {
+                alert('Element with id ' + id + ' not found.');
+            }
+
+            el.innerHTML = html;
+        }
+
+        function run() {
+            var html = createTable(listPlaces);
+
+            insertHTML('tabledata', html);
+        }
+
+        window.onload = run;
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCW8TfRA01eXKqE49NioETqvyDdw5W_zyQ&libraries=places&callback=initialize"
+            async defer></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/geocode/json?address=_adress&key=AIzaSyCW8TfRA01eXKqE49NioETqvyDdw5W_zyQ"></script>
+    <div id="tabledata"></div>
+</body>
 </html>
 <style>
 
-.x {
+    .x {
         position:absolute;
         color: orange;
         font-family: Poppins;
@@ -157,5 +164,14 @@
 
     .action{
         color:orange;
+    }
+
+    #tabledata{
+        margin-top: 24px;
+        margin-left: 24px;
+        
+    }
+    #tabledata li{
+        font-size: 20px;
     }
 </style>

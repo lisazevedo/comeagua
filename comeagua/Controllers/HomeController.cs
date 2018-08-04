@@ -21,7 +21,7 @@ namespace comeagua.Controllers
         //}
         public ActionResult SearchPage(String busca)
         {
-            //ViewBag.Busca = busca;
+            ViewBag.Busca = busca;
             //Session["UserLOGIN"] = "Lis";
             return View();
         }
