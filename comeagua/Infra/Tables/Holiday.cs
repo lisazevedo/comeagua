@@ -7,5 +7,8 @@ namespace comeagua.Infra.Tables
 {
     public class Holiday
     {
+        public int ID { get; set; }
+        public DateTime Date { get; set; }
+        public string Description { get; set; }
     }
 }

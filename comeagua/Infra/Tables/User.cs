@@ -11,8 +11,10 @@ namespace comeagua.Infra.Tables
         public string Name { get; set; }
         public string LastName { get; set; }
         public DateTime DateBirth { get; set; }
-
+        public string Email { get; set; }
         public int ReviewID { get; set; }
+        public string Password { get; set; }
+
         public virtual List<Photo> Photos { get; set; }
         public virtual List<Event> Events { get; set; }
     }
