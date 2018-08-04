@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using comeagua.Infra.Tables;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace comeagua.Models
@@ -65,12 +66,28 @@ namespace comeagua.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "Nome")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Sobre Nome")]
+        public string LastName { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "O/A {0} deve ter no mínimo {2} caracteres.", MinimumLength = 6)]
+        [DataType(DataType.Date)]
+        [Display(Name = "Data Nascimento")]
+        public string Birthday { get; set; }
+
+        [Display(Name = "Foto")]
+        public byte[] Image { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "O/A {0} deve ter no mínimo {2} caracteres.", MinimumLength = 8)]
         [DataType(DataType.Password)]
         [Display(Name = "Senha")]
         public string Password { get; set; }
@@ -79,6 +96,10 @@ namespace comeagua.Models
         [Display(Name = "Confirmar Senha")]
         [Compare("Password", ErrorMessage = "A senha e a senha de confirmação não correspondem.")]
         public string ConfirmPassword { get; set; }
+
+        //User user = new User {Name = FirstName, LastName = LastName, Birthday = ,Email = , Password = };
+
+        //AddUser(user);
     }
 
     public class ResetPasswordViewModel

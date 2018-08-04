@@ -10,7 +10,7 @@ namespace comeagua.Infra.Tables
         public int ID { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
-        public DateTime DateBirth { get; set; }
+        public DateTime Birthday { get; set; }
         public string Email { get; set; }
         public int ReviewID { get; set; }
         public string Password { get; set; }
