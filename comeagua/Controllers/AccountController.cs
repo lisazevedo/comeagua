@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using comeagua.Models;
+using comeagua.Infra.DBO;
 
 namespace comeagua.Controllers
 {
@@ -152,6 +153,7 @@ namespace comeagua.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                DboUser.AddUser(model.Email, model.FirstName, model.LastName, model.Password, model.Birthday);
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

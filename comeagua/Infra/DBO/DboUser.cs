@@ -8,11 +8,11 @@ namespace comeagua.Infra.DBO
 {
     public static class DboUser
     {
-        public static string AddUser(User user)
+        public static string AddUser(string email, string firstname, string lastname, string password, DateTime birthday)
         {
             var db = new Context();
             db.Start();
-
+            User user = new User { Name = firstname, LastName = lastname, Birthday = birthday, Email = email, Password = password};
             var Query = (from Log in db.Users where Log.Email == user.Email select Log);
 
             if(Query is null)

@@ -1,4 +1,6 @@
-﻿using comeagua.Infra.Tables;
+﻿using comeagua.Infra.DBO;
+using comeagua.Infra.Tables;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -81,7 +83,7 @@ namespace comeagua.Models
         [Required]
         [DataType(DataType.Date)]
         [Display(Name = "Data Nascimento")]
-        public string Birthday { get; set; }
+        public DateTime Birthday { get; set; }
 
         [Display(Name = "Foto")]
         public byte[] Image { get; set; }
@@ -97,9 +99,8 @@ namespace comeagua.Models
         [Compare("Password", ErrorMessage = "A senha e a senha de confirmação não correspondem.")]
         public string ConfirmPassword { get; set; }
 
-        //User user = new User {Name = FirstName, LastName = LastName, Birthday = ,Email = , Password = };
 
-        //AddUser(user);
+        //User user = new User {Name = FirstName, LastName = LastName, Birthday = ,Email = this.Email, Password = };
     }
 
     public class ResetPasswordViewModel
