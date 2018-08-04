@@ -4,9 +4,12 @@
     <meta charset="utf-8" />
     <title>comeagua</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="StylesHomePage.css" type="text/css">
-
+    <link rel="stylesheet" href="../../Content/StylesHomePage.css" type="text/css">
+    @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/StylesHomePage.css")
+
+
 </head>
 <!--Header da parada-->
 <body>
@@ -23,7 +26,7 @@
     </header>
     <form class="example" action="~/Home/SearchPage">
         <input type="text" placeholder="Aonde você deseja ir?" id="busca" name="busca">
-       @* <p> @ViewBag.Log</p>*@
+        @* <p> @ViewBag.Log</p>*@
         <a href="~/Views/Home/SearchPage"><button type="submit"><i class="fa fa-search"></i></button></a>
         @*@Html.ActionLink("Buscar", "SearchPage", "Home",  "teste" )*@
     </form>
@@ -46,7 +49,7 @@
     <p class="lis_equipe">lisazevedo</p>
     <p class="leo_equipe">Le4o</p>
     <img id="copyright_id" src="assets/copyright.png">
-    @*<a href="#" target="_blank"><img class="instagram_id" src="assets/instagram.png"></a>*@
+  
     <img class="ball" src="assets/ball.png">
     <img class="ball2" src="assets/ball.png">
     <img class="ball3" src="assets/ball.png">
@@ -58,26 +61,36 @@
         {
             @Html.AntiForgeryToken()
 
-           
-             @Html.ActionLink("Olá " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-            
+
+            @Html.ActionLink("Olá " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+
             <a href="javascript:document.getElementById('logoutForm').submit()">Fazer logoff</a>
-            
+
         }
     }
     else
-    {
-
-        <form action="~/Account/ExternalLogin">
-            <a  href = "Account/Login" id="loginLink" target="_blank"><img class="facebook_id" src="assets/facebook.png" onmouseover="Animation_login"></a>
-            @*<button  type="submit" id="Facebook" value="Facebook" name="provider" ><img class="facebook_id" src="assets/facebook.png" onmouseover="Animation_login"> </button>*@
-
-        </form>
-        @*@Html.ActionLink("Logon", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })*@
-        @*<button type="submit" class="btn btn-default" id="Facebook" name="provider" value="Facebook" title="Faça login usando sua conta Facebook">Facebook</button>*@
-
+    {       
+          
+        @Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
     }
 
 </body>
 </html>
 
+<style>
+    #loginLink {
+        position: absolute;
+        font-family: Poppins;
+        color: orange;
+        margin-top: -6.5%;
+        margin-left: 35%;
+        font-size:130%;
+        
+    }
+
+        #loginLink:hover {
+            color: lightcoral;
+            text-decoration: none;
+        }
+
+</style>
