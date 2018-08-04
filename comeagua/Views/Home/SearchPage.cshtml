@@ -15,13 +15,8 @@
     <header>
         <div class="logo1">
             <img id="logo_id" src="~/assets/logo.png">
-        </div>
-        @*<a href="~/Home/Index"><p id="text_pagina_inicial"><font>Pagina inicial</font></p></a>*@
-        @Html.ActionLink("Pagina Inicial", "Index", "Home", new { @class = "action" })
-        @*<a  class="" href="@Url.Action("Index", "Home")"><font> xxx</font> </a>*@
-        <form action="~/Home/Index">
-            <a href="~/Views/Home/Index"><p><font class="x">Pagina inicial teste </font> </p></a>
-        </form>
+        </div>     
+        @Html.ActionLink("Pagina Inicial", "Index", "Home", new { @class = "action" })       
     </header>
 
 
