@@ -5,7 +5,7 @@ using System.Web;
 
 namespace comeagua.Infra.Tables.Facebook
 {
-    public class UserFacebook
+    public class FacebookUser
     {
         //public int AppID { get; set; }
         public string id { get; set; }

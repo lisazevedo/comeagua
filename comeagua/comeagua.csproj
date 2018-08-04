@@ -212,7 +212,7 @@
     <Compile Include="Infra\Tables\Review.cs" />
     <Compile Include="Infra\Tables\Tag.cs" />
     <Compile Include="Infra\Tables\User.cs" />
-    <Compile Include="Infra\Tables\Facebook\UserFacebook.cs" />
+    <Compile Include="Infra\Tables\Facebook\FacebookUser.cs" />
     <Compile Include="Infra\Tables\Week.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -287,10 +287,12 @@
     <Content Include="Views\Account\SendCode.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Home\SearchPage.cshtml" />
+    <Content Include="Views\Facebook\Posts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Domain\" />
+    <Folder Include="Models\SocialMedia\Facebook\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
