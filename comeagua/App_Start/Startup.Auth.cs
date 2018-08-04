@@ -54,9 +54,9 @@ namespace comeagua
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            app.UseFacebookAuthentication(
-               appId: "422518188236564",
-               appSecret: "e2078c9c409cbd0dc96198a56ff34875");
+           // app.UseFacebookAuthentication(
+              // appId: "422518188236564",
+              // appSecret: "e2078c9c409cbd0dc96198a56ff34875");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
