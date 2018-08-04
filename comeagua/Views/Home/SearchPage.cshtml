@@ -33,7 +33,7 @@
         var infowindow;
         var pp = "@ViewBag.Busca";
         var listPlaces = [];
-        //Vinicity
+        
         function initialize() {
             var latitude;
             var longitude;
@@ -110,10 +110,10 @@
             for (var i = 0; i < data.length; i++) {
                 html += '<li>'
                 html += data[i].name;
-                html += '                 ';
+                html += '</li><p>';
                 html += data[i].vicinity;
-                html += '</li>';
-                html += '<br/><br/>';
+                html += '</p>';
+                html += '<br/>';
             }
             html += '</ol></table>';
             return html;
@@ -169,9 +169,18 @@
     #tabledata{
         margin-top: 24px;
         margin-left: 24px;
-        
+        margin-right: 24px;
+        margin-bottom: 16px;
     }
+    
     #tabledata li{
+        margin-right: 3%;
         font-size: 20px;
+    }
+
+    #tabledata p{
+        margin-top: 0.6%;
+        font-size: 14px;
+        color: #D3D3D3;
     }
 </style>
