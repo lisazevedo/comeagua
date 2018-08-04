@@ -17,15 +17,14 @@
             <nav>
                 <ul class="container-fluid">
                     <a class="btns_header" href="#"><img id="suaconta_id" src="assets/suaconta.png"></a>
-
                 </ul>
             </nav>
         </div>
     </header>
     <form class="example" action="~/Home/SearchPage">
         <input type="text" placeholder="Aonde você deseja ir?" id="busca" name="busca">
-        <p> @ViewBag.Log</p>
-        <button type="submit"><i class="fa fa-search"></i></button>
+       @* <p> @ViewBag.Log</p>*@
+        <a href="~/Views/Home/SearchPage"><button type="submit"><i class="fa fa-search"></i></button></a>
         @*@Html.ActionLink("Buscar", "SearchPage", "Home",  "teste" )*@
     </form>
     <section>

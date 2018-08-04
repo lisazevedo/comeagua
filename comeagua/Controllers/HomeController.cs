@@ -10,7 +10,7 @@ namespace comeagua.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Log = Session["UserLOGIN"] == null ? "Nao logado" : Session["UserLOGIN"].ToString();
+            //ViewBag.Log = Session["UserLOGIN"] == null ? "Nao logado" : Session["UserLOGIN"].ToString();
             // Para deslogar coloca Sesson.Abort ou 
            // Session.Abandon();
             return View();
@@ -21,8 +21,8 @@ namespace comeagua.Controllers
         //}
         public ActionResult SearchPage(String busca)
         {
-            ViewBag.Busca = busca;
-            Session["UserLOGIN"] = "Lis";
+            //ViewBag.Busca = busca;
+            //Session["UserLOGIN"] = "Lis";
             return View();
         }
 
