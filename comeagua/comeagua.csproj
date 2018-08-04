@@ -199,6 +199,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infra\DBO\DboPub.cs" />
+    <Compile Include="Infra\DBO\DboUser.cs" />
     <Compile Include="Infra\Tables\Address.cs" />
     <Compile Include="Infra\Tables\Event.cs" />
     <Compile Include="Infra\Tables\Facebook\Data.cs" />
