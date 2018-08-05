@@ -49,7 +49,7 @@
     <p class="lis_equipe">lisazevedo</p>
     <p class="leo_equipe">Le4o</p>
     <img id="copyright_id" src="assets/copyright.png">
-  
+
     <img class="ball" src="assets/ball.png">
     <img class="ball2" src="assets/ball.png">
     <img class="ball3" src="assets/ball.png">
@@ -61,20 +61,21 @@
         {
             @Html.AntiForgeryToken()
 
+        
+                @Html.ActionLink("Olá " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
 
-            @Html.ActionLink("Olá " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                <a href="javascript:document.getElementById('logoutForm').submit()">Fazer logoff</a>
+              
+                }
+                }
+         else
+          {
+               
+                    @Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+                    }
+           
 
-            <a href="javascript:document.getElementById('logoutForm').submit()">Fazer logoff</a>
-
-        }
-    }
-    else
-    {       
-          
-        @Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
-    }
-
-</body>
+        </body>
 </html>
 
 <style>
