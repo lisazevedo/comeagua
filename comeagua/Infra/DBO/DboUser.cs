@@ -6,13 +6,13 @@ using System.Web;
 
 namespace comeagua.Infra.DBO
 {
-    public class DboUser
+    public static class DboUser
     {
-        public string AddUser(User user)
+        public static string AddUser(string email, string firstname, string lastname, string password, DateTime birthday)
         {
             var db = new Context();
             db.Start();
-
+            User user = new User { Name = firstname, LastName = lastname, Birthday = birthday, Email = email, Password = password};
             var Query = (from Log in db.Users where Log.Email == user.Email select Log);
 
             if(Query is null)
@@ -21,12 +21,10 @@ namespace comeagua.Infra.DBO
                 db.SaveChanges();
                 return "Usuario criado com sucesso!";
             }
-
             return "E-mail já cadastrado, tente novamente com outro e-mail.";
-            
         }
 
-        public void DeleteUser(int id)
+        public static void DeleteUser(int id)
         {
             var db = new Context();
             db.Start();
@@ -38,7 +36,7 @@ namespace comeagua.Infra.DBO
             
         }
 
-        public void UpdateUser(User user)
+        public static void UpdateUser(User user)
         {
             var db = new Context();
 
@@ -48,7 +46,7 @@ namespace comeagua.Infra.DBO
             db.SaveChanges();
         }
 
-        public string ExistUser(string email, string password)
+        public static string ExistUser(string email, string password)
         {
             var db = new Context();
             var Query = (from Log in db.Users where Log.Email == email select Log);

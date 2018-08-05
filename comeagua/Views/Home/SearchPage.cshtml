@@ -15,14 +15,16 @@
     <header>
         <div class="logo1">
             <img id="logo_id" src="~/assets/logo.png">
-        </div>     
-        @Html.ActionLink("Pagina Inicial", "Index", "Home", new { @class = "action" })       
+        </div>
+        @*<a href="~/Home/Index"><p id="text_pagina_inicial"><font>Pagina inicial</font></p></a>*@
+        @Html.ActionLink("Pagina Inicial", "Index", "Home", new { @class = "action" })
+        @*<a  class="" href="@Url.Action("Index", "Home")"><font> xxx</font> </a>*@
+        <form action="~/Home/Index">
+            <a href="~/Views/Home/Index"><p><font class="x">Pagina inicial teste </font> </p></a>
+        </form>
     </header>
 
-
-
-    <p>Resultados para: </p>
-    <input id="pac-input" class="controls" type="text" placeholder="Onde você deseja ir hoje?">
+    <p id="res">Resultados para: @ViewBag.Busca</p>
     <div id="map"></div>
     <script>
         var map;
@@ -30,7 +32,7 @@
         var infowindow;
         var pp = "@ViewBag.Busca";
         var listPlaces = [];
-        //Vinicity
+        
         function initialize() {
             var latitude;
             var longitude;
@@ -107,10 +109,10 @@
             for (var i = 0; i < data.length; i++) {
                 html += '<li>'
                 html += data[i].name;
-                html += '                 ';
+                html += '</li><p>';
                 html += data[i].vicinity;
-                html += '</li>';
-                html += '<br/><br/>';
+                html += '</p>';
+                html += '<br/>';
             }
             html += '</ol></table>';
             return html;
@@ -141,7 +143,16 @@
 </body>
 </html>
 <style>
+    #back{
+        margin: 24px;
+    }
 
+    .logo1{
+        margin: 24px;
+    }
+    #res{
+        margin: 24px;
+    }
     .x {
         position:absolute;
         color: orange;
@@ -166,9 +177,18 @@
     #tabledata{
         margin-top: 24px;
         margin-left: 24px;
-        
+        margin-right: 24px;
+        margin-bottom: 16px;
     }
+    
     #tabledata li{
+        margin-right: 3%;
         font-size: 20px;
+    }
+
+    #tabledata p{
+        margin-top: 0.6%;
+        font-size: 14px;
+        color: #D3D3D3;
     }
 </style>
