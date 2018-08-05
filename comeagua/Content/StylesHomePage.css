@@ -40,6 +40,9 @@ li {
     position: absolute;
     width: 7%;
     margin-top: -3%;
+    border: 2px solid;
+    border-radius: 30px;
+    padding: 5px;
 }
 
 #login_id {
@@ -205,6 +208,7 @@ form.example input[type=text] {
     margin-left: 20%;
     border-radius: 30px;
     font-family: Poppins, Helvetica, sans-serif;
+    outline: 0;
 }
 
 /* Style the submit button */

@@ -5,95 +5,83 @@
     @model LoginViewModel
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <link rel="stylesheet" href="StylesHomePage.css" type="text/css">
-    <link rel="stylesheet" href="styles_mappage.css" type="text/css">
-    <link rel="stylesheet" href="StyleLogin.css" type="text/css">
 
-    @Styles.Render("~/Content/StylesHomePage.css")
-    @Styles.Render("~/Content/styles_mappage.css")
+    <link rel="stylesheet" href="StyleLogin.css" type="text/css">     
     @Styles.Render("~/Content/StyleLogin.css")
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
+<body>
+  
+
     <header>
         <div class="logo1">
             <img id="logo_id" src="~/assets/logo.png">
+            @Html.ActionLink("Pagina Inicial", "Index", "Home", new { @class = "action" })
         </div>
     </header>
 
 
-<div class="col-md-8">
-    <section id="loginForm">
-        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-        {
-            @Html.AntiForgeryToken()
+    <div class="div_1">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
 
 
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                <div class="col-md-10">
-                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <div class="checkbox">
-                        @Html.CheckBoxFor(m => m.RememberMe)
-                        @Html.LabelFor(m => m.RememberMe)
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                    <div class="div_2">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "search_login" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                     </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Efetuar login" class="btn btn-default" />
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                    <div class="div_2">
+                        @Html.PasswordFor(m => m.Password, new { @class = "search_login" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
-            <p>
-              
-                <a class="text_criarconta" href="/Account/Register">Criar uma conta</a>
-            </p>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <div class="checkbox">
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.LabelFor(m => m.RememberMe, new { @class = "chupeta" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Efetuar login" class="btn btn-default" />
+                    </div>
+                </div>
+                <p>
 
-            <p>
-               
-                <a  class="text_esquecisenha" href="/Account/ForgotPassword">Esqueci minha senha</a>
-            </p>
-        }
-    </section>
-</div>
+                    <a onclick="window.open('/Account/Register','width=680,height=470')" ;return false;" id="Register" class="text_criarconta" href="/Account/Register">Criar uma conta</a>
+
+                </p>
+
+                <p>
+
+                    <a class="text_esquecisenha" href="/Account/ForgotPassword">Esqueci minha senha</a>
+                </p>
+            }
+        </section>
+    </div>
+    <img class="ball" src="~/assets/ball.png">
+    <img class="ball2" src="~/assets/ball.png">
+    <img class="ball3" src="~/assets/ball.png">
+</body>
 </html>
 
 <style>
-    *{
-        margin:0;
-        font-family:Poppins;
-        font-size: 110%;
-    }
-    .text_criarconta{
-        color: orange;
-    }
-    .text_criarconta:hover {
-        text-decoration: none;
-        color: lightcoral;
-    }
-    .text_esquecisenha:hover {
-        color: lightcoral;
-        text-decoration: none;
-    }
-    .text_esquecisenha {
-        color: orange;
-       
-    }
+
+  
 </style>
+
 
 
 

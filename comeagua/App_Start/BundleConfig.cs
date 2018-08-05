@@ -24,7 +24,7 @@ namespace comeagua
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css", "~/Content/styles_mappage.css",
-                      "~/Content/StylesHomePage.css"));
+                      "~/Content/StylesHomePage.css","~/Content/StylesRegister"));
         }
     }
 }

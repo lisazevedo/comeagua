@@ -1,0 +1,85 @@
+﻿* {
+    margin: 0;
+    font-family: Poppins;
+ 
+}
+body {
+    overflow: hidden;
+}
+.col-md-2 control-label{
+    font-size:50%;
+    margin-top: 10%;
+}
+.form-group {
+    border-radius: 30px;
+    outline: 0;
+}
+.form-control {
+    border-radius: 30px;
+    outline: 0;
+    border: 1px solid;
+    border-color: black;
+    width: 70%;
+    font-size:100%;
+}
+#logo_id{
+    width: 10%;
+}
+.div_2 {
+    margin-left: 40%;
+    margin-top: 0%;
+}
+.div_1 {
+    margin-left: 25%;
+    border-style: double;
+    border-color: orange; /* uma cor de borda para cada lado */
+    padding: 20px;
+    width: 40%;
+    border-radius: 30px;
+}
+.btn_register{
+    border: 2px solid;
+    border-radius: 30px;
+    color:orange;
+    background: white;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 10%;
+    font-size: 120%;
+}
+.btn_register:hover {
+   color:lightcoral;
+}
+col-md-offset-2 col-md-10{
+    float:right;
+
+}
+.ball {
+    position: absolute;
+    animation: animate 20s linear infinite;
+    z-index: -5;
+}
+
+.ball2 {
+    position: absolute;
+    animation: animate 25s linear infinite;
+    z-index: -5;
+    left: 80%;
+}
+
+.ball3 {
+    position: absolute;
+    animation: animate 27s linear infinite;
+    z-index: -5;
+    left: 55%;
+    width: 10%;
+}
+@keyframes animate {
+    0% {
+        transform: translateY(50%);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}

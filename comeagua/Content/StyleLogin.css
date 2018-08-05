@@ -1,7 +1,13 @@
-﻿form {
+﻿* {
+    margin: 0;
+ 
+}
+body {
+   overflow:hidden;
+    }
+form {
     border: 3px solid #f1f1f1;
 }
-
 /* Full-width inputs */
 input[type=text], input[type=password] {
     width: 100%;
@@ -11,7 +17,6 @@ input[type=text], input[type=password] {
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
-
 /* Set a style for all buttons */
 button {
     background-color: #4CAF50;
@@ -22,31 +27,26 @@ button {
     cursor: pointer;
     width: 100%;
 }
-
     /* Add a hover effect for buttons */
     button:hover {
         opacity: 0.8;
     }
-
 /* Extra style for the cancel button (red) */
 .cancelbtn {
     width: auto;
     padding: 10px 18px;
     background-color: #f44336;
 }
-
 /* Center the avatar image inside this container */
 .imgcontainer {
     text-align: center;
     margin: 24px 0 12px 0;
 }
-
 /* Avatar image */
 img.avatar {
     width: 40%;
     border-radius: 50%;
 }
-
 /* Add padding to containers */
 .container {
     padding: 16px;
@@ -64,8 +64,111 @@ span.psw {
         display: block;
         float: none;
     }
-
     .cancelbtn {
         width: 100%;
     }
+}
+*{
+    margin: 0;
+    font-family: Poppins;
+    font-size: 110%;
+}
+
+.text_criarconta {
+    color: orange;
+}
+
+.text_criarconta:hover {
+        text-decoration: none;
+        color: lightcoral;
+    }
+
+.text_esquecisenha:hover {
+    color: lightcoral;
+    text-decoration: none;
+}
+.text_esquecisenha {
+    color: orange;
+}
+
+.action {
+    margin-left: 70%;
+    color: orange;
+    border: 2px solid;
+    border-radius: 30px;
+    padding: 5px;
+}
+
+    .action:hover {
+        color: lightcoral;
+        text-decoration: none;
+    }
+
+.ball {
+    position: absolute;
+    animation: animate 20s linear infinite;
+    z-index: -5;
+}
+
+.ball2 {
+    position: absolute;
+    animation: animate 25s linear infinite;
+    z-index: -5;
+    left: 80%;
+}
+
+.ball3 {
+    position: absolute;
+    animation: animate 27s linear infinite;
+    z-index: -5;
+    left: 55%;
+    width: 10%;
+}
+.div_1 {
+    margin-left: 25%;
+    border-style: double; /* estilos de borda diferentes para cima-baixo e esquerda-direita */
+    border-color: orange; /* uma cor de borda para cada lado */
+    padding: 20px;
+    width: 40%;
+    border-radius: 30px;
+}
+.div_2 {
+    width: 70%;
+    outline: 0;
+    margin-left: 25%;
+    height: 10%;
+    font-size: 50%;
+
+}
+.search_login {
+    border-color: black;
+    border-radius: 30px;
+    border: 1px solid;
+    outline: 0;
+ 
+}
+@keyframes animate {
+    0%{
+        transform: translateY(50%);
+    }
+
+    100%{
+        transform: translateY(-100%);
+    }
+}
+.col-md-2 control-label{
+    margin-left: 10%;
+}
+.col-md-offset-2 col-md-10{
+    width:10%;
+    font-size: 20%;
+}
+.chupeta{
+    position:relative;
+    font-size:50%;
+    margin-top: -5%;
+    margin-left: 0%;
+}
+.checkbox{
+    margin-top: 10%;
 }
