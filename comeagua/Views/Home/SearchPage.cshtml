@@ -83,8 +83,9 @@
             }
         }
 
+        console.log(listPlaces);
+
         function createMarker(place) {
-            var placeLoc = place.geometry.location;
             var marker = new google.maps.Marker({
                 map: map,
                 icon: '../../assets/logoc.png',
@@ -99,19 +100,27 @@
             });
         }
 
-        //Mostra todos os bares da redondeza
-        console.log(listPlaces);
-
         function createTable(data) {
             var html = '';
             html += '<ol>';
             html += '<table class="data">';
+            console.log(data.length);
             for (var i = 0; i < data.length; i++) {
                 html += '<li>'
                 html += data[i].name;
-                html += '</li><p>';
+                html += '</li>';
+                if (data[i].opening_hours != undefined && data[i].opening_hours.open_now) {
+                    html += '<li style="color: #F69D1D">Aberto agora!</li>';
+                }
+                if (data[i].rating != undefined) {
+                    var fstars = data[i].rating;
+                    html += '<img style="width: 1.2%" src="../../assets/star.png"></img>';
+                    html += '<li style="font-size: 15px">' + fstars + '</li>';
+                }
+                html += '<p>';
                 html += data[i].vicinity;
                 html += '</p>';
+                
                 html += '<br/>';
             }
             html += '</ol></table>';
@@ -122,7 +131,7 @@
             var el = document.getElementById(id);
 
             if (!el) {
-                alert('Element with id ' + id + ' not found.');
+                alert('Elemento não encontrado');
             }
 
             el.innerHTML = html;
@@ -190,5 +199,10 @@
         margin-top: 0.6%;
         font-size: 14px;
         color: #D3D3D3;
+    }
+
+    #tabledata img{
+        margin-left: 4px;
+        margin-right: 4px;
     }
 </style>

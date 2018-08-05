@@ -239,6 +239,7 @@
     <Content Include="assets\Login.png" />
     <Content Include="assets\logo.png" />
     <Content Include="assets\logoc.png" />
+    <Content Include="assets\star.png" />
     <Content Include="assets\suaconta.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
