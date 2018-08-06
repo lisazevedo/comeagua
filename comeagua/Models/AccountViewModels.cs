@@ -80,15 +80,17 @@ namespace comeagua.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        
-
         [Required]
         [DataType(DataType.Date)]
         [Display(Name = "Data Nascimento")]
-        public DateTime Birthday { get; set; }
+        public DateTime Birthdate { get; set; }
 
         [Display(Name = "Foto")]
         public byte[] Image { get; set; }
+
+        [Required]
+        [Display(Name = "Gender")]
+        public int Gender { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "O/A {0} deve ter no mínimo {2} caracteres.", MinimumLength = 8)]

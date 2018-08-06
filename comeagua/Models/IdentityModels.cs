@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using comeagua.Infra.Tables;
@@ -11,7 +12,20 @@ namespace comeagua.Models
     // É possível adicionar dados do perfil do usuário adicionando mais propriedades na sua classe ApplicationUser, visite https://go.microsoft.com/fwlink/?LinkID=317594 para obter mais informações.
     public class ApplicationUser : IdentityUser
     {
-        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        //public DateTime BirthDate { get; set; }
+        public byte[] Image { get; set; }
+        public int Gender { get; set; } // lis n aprova.
+
+        //leo chupa minah caceta
+        //lis mama
+        //lis passa marcha de tavares
+        // lis bagaça sheldon
+
+
+
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)//Login passa por aqui.
         {
             // Observe que o authenticationType deve corresponder àquele definido em CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
@@ -31,7 +45,7 @@ namespace comeagua.Models
         {
             return new ApplicationDbContext();
         }
-
+        // LIS FEZ TOTO AQUI
         public void Start()
         {
             this.Database.CreateIfNotExists();

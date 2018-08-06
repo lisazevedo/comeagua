@@ -61,21 +61,20 @@
         {
             @Html.AntiForgeryToken()
 
-        
-                @Html.ActionLink("Olá " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
 
-                <a href="javascript:document.getElementById('logoutForm').submit()">Fazer logoff</a>
-              
-                }
-                }
-         else
-          {
-               
-                    @Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
-                    }
-           
+            @Html.ActionLink("Olá " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            <a href="javascript:document.getElementById('logoutForm').submit()">Fazer logoff</a>
 
-        </body>
+        }
+    }
+    else
+    {
+
+        @Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+    }
+
+
+</body>
 </html>
 
 <style>
