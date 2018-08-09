@@ -88,7 +88,8 @@ namespace comeagua.Models
 
         [DataType(DataType.Upload)]
         [Display(Name = "Image")]
-        public byte[] Image { get; set; }       
+        public String ImagePath { get; set; }       
+        public HttpPostedFileBase ImageFile { get; set; }
           
         [Required]
         [Display(Name = "Gender")]
