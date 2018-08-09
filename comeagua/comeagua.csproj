@@ -194,14 +194,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808060149466_Inicial.cs" />
-    <Compile Include="Migrations\201808060149466_Inicial.Designer.cs">
-      <DependentUpon>201808060149466_Inicial.cs</DependentUpon>
+    <Compile Include="Migrations\201808082017270_d.cs" />
+    <Compile Include="Migrations\201808082017270_d.Designer.cs">
+      <DependentUpon>201808082017270_d.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808060201540_Inicial1.cs" />
-    <Compile Include="Migrations\201808060201540_Inicial1.Designer.cs">
-      <DependentUpon>201808060201540_Inicial1.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Infra\DBO\DboPub.cs" />
     <Compile Include="Models\Infra\DBO\DboUser.cs" />
     <Compile Include="Models\Infra\Tables\Address.cs" />
@@ -219,7 +216,6 @@
     <Compile Include="Models\Infra\Tables\User.cs" />
     <Compile Include="Models\Infra\Tables\Facebook\FacebookUser.cs" />
     <Compile Include="Models\Infra\Tables\Week.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -364,11 +360,8 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808060149466_Inicial.resx">
-      <DependentUpon>201808060149466_Inicial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808060201540_Inicial1.resx">
-      <DependentUpon>201808060201540_Inicial1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808082017270_d.resx">
+      <DependentUpon>201808082017270_d.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

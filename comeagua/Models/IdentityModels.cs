@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -16,13 +17,9 @@ namespace comeagua.Models
         public string LastName { get; set; }
         //public DateTime BirthDate { get; set; }
         public byte[] Image { get; set; }
-        public int Gender { get; set; } // lis n aprova.
-
-        //leo chupa minah caceta
-        //lis mama
-        //lis passa marcha de tavares
-        // lis bagaça sheldon
-
+        public int Gender { get; set; } 
+        public int ReviewID { get; set; }
+        public virtual List<Event> Events { get; set; }
 
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)//Login passa por aqui.

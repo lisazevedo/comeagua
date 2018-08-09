@@ -10,7 +10,6 @@ namespace comeagua.Infra.Tables
         public int ID { get; set; }
         public byte[] Image { get; set; }
 
-        public int UserID { get; set; }
         public int PubID { get; set; }
     }
 }

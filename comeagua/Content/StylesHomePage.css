@@ -16,11 +16,6 @@ li {
     display: inline;
 }
 
-.btns_header {
-    margin-left: 20%;
-    margin-top: -5%;
-}
-
 .logo {
     max-width: 100%;
 }
@@ -36,14 +31,6 @@ li {
     margin-top: -5%;
 }
 
-#suaconta_id {
-    position: absolute;
-    width: 7%;
-    margin-top: -3%;
-    border: 2px solid;
-    border-radius: 30px;
-    padding: 5px;
-}
 
 #login_id {
     position: absolute;
@@ -267,4 +254,3 @@ form.example::after {
         transform: translateY(-800%);
     }
 }
-

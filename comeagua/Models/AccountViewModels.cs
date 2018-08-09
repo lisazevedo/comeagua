@@ -3,6 +3,7 @@ using comeagua.Infra.Tables;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 
 namespace comeagua.Models
 {
@@ -85,9 +86,10 @@ namespace comeagua.Models
         [Display(Name = "Data Nascimento")]
         public DateTime Birthdate { get; set; }
 
-        [Display(Name = "Foto")]
-        public byte[] Image { get; set; }
-
+        [DataType(DataType.Upload)]
+        [Display(Name = "Image")]
+        public byte[] Image { get; set; }       
+          
         [Required]
         [Display(Name = "Gender")]
         public int Gender { get; set; }

@@ -17,12 +17,8 @@
         <div class="logo">
             <img id="logo_id" src="assets/logo.png">
             <img id="beer_id" src="assets/Beer.png">
-            <nav>
-                <ul class="container-fluid">
-                    <a class="btns_header" href="#"><img id="suaconta_id" src="assets/suaconta.png"></a>
-                </ul>
-            </nav>
         </div>
+
     </header>
     <form class="example" action="~/Home/SearchPage">
         <input type="text" placeholder="Aonde você deseja ir?" id="busca" name="busca">
@@ -60,17 +56,29 @@
         using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
         {
             @Html.AntiForgeryToken()
+            <div class="dropdown">
+                <button class="dropbtn"> <font class="txt_suaconta">Sua conta</font> </button>
+                <div class="dropdown-content">
+                    @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                  
+                    <a href="javascript:document.getElementById('logoutForm').submit()">Fazer logoff</a>
+                </div>
+            </div>
 
 
-            @Html.ActionLink("Olá " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-            <a href="javascript:document.getElementById('logoutForm').submit()">Fazer logoff</a>
+
+
 
         }
     }
     else
     {
-
+       
+        <i>
+            
+        </i>
         @Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+
     }
 
 
@@ -94,5 +102,57 @@
             color: lightcoral;
             text-decoration: none;
         }
+
+    .dropbtn {
+        padding: 16px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 30px;
+        background-color: white;
+        border-style: solid;
+        border-color: orange;
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+        /* Links inside the dropdown */
+     .dropdown-content a{
+        color: orange;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        }
+
+            /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {
+        background-color: white;
+    }
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {
+      color:lightcoral;
+    }
+    .txt_suaconta{
+        color:orange;
+    }
 
 </style>

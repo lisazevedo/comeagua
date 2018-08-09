@@ -153,6 +153,7 @@ namespace comeagua.Controllers
         {
             if (ModelState.IsValid)
             {
+               
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FirstName = model.FirstName,LastName=model.LastName
                 ,Image=model.Image,Gender=model.Gender};
                 //User user1 = new User { Name = model.FirstName, LastName = model.LastName, Birthday = model.Birthday, Email = model.Email, Password = model.Password };
