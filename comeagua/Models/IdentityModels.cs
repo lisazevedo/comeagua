@@ -16,7 +16,7 @@ namespace comeagua.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         //public DateTime BirthDate { get; set; }
-        public byte[] Image { get; set; }
+        public String Image { get; set; }
         public int Gender { get; set; } 
         public int ReviewID { get; set; }
         public virtual List<Event> Events { get; set; }

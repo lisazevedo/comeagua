@@ -11,6 +11,7 @@ using Microsoft.Owin.Security;
 using comeagua.Models;
 using comeagua.Infra.DBO;
 using comeagua.Infra.Tables;
+using System.IO;
 
 namespace comeagua.Controllers
 {
@@ -153,9 +154,17 @@ namespace comeagua.Controllers
         {
             if (ModelState.IsValid)
             {
-               
+                if(model.ImageFile != null) {
+                string fileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
+                string extension = Path.GetExtension(model.ImageFile.FileName);
+                fileName = fileName + extension;
+                model.ImagePath = "~/Image/" + fileName;
+                fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
+                model.ImageFile.SaveAs(fileName);
+                }
+
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FirstName = model.FirstName,LastName=model.LastName
-                ,Image=model.Image,Gender=model.Gender};
+                ,Image=model.ImagePath,Gender=model.Gender};
                 //User user1 = new User { Name = model.FirstName, LastName = model.LastName, Birthday = model.Birthday, Email = model.Email, Password = model.Password };
                 //DboUser.AddUser(user1);
                 var result = await UserManager.CreateAsync(user, model.Password);
