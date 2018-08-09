@@ -350,6 +350,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Domain\" />
+    <Folder Include="Image\" />
     <Folder Include="Models\SocialMedia\Facebook\" />
   </ItemGroup>
   <ItemGroup>

@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/StylesHomePage.css")
-
+    @model comeagua.Models.RegisterViewModel
 
 </head>
 <!--Header da parada-->
@@ -60,7 +60,7 @@
                 <button class="dropbtn"> <font class="txt_suaconta">Sua conta</font> </button>
                 <div class="dropdown-content">
                     @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-                  
+              
                     <a href="javascript:document.getElementById('logoutForm').submit()">Fazer logoff</a>
                 </div>
             </div>

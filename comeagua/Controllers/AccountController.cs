@@ -12,6 +12,7 @@ using comeagua.Models;
 using comeagua.Infra.DBO;
 using comeagua.Infra.Tables;
 using System.IO;
+using System.Drawing;
 
 namespace comeagua.Controllers
 {
@@ -154,14 +155,14 @@ namespace comeagua.Controllers
         {
             if (ModelState.IsValid)
             {
-                if(model.ImageFile != null) {
+             
                 string fileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
                 string extension = Path.GetExtension(model.ImageFile.FileName);
                 fileName = fileName + extension;
                 model.ImagePath = "~/Image/" + fileName;
                 fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
                 model.ImageFile.SaveAs(fileName);
-                }
+          
 
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FirstName = model.FirstName,LastName=model.LastName
                 ,Image=model.ImagePath,Gender=model.Gender};
