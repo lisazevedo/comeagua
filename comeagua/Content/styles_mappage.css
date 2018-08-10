@@ -1,15 +1,75 @@
-﻿/*-----map page ------*/
+/*-----map page ------*/
 * {
     font-family: Poppins, Helvetica, sans-serif;
     margin:0;
 }
 
-#map {
-    height: 50%;
-    margin-top: 10px;
+
+#tabledata {
+    position:absolute;
+    margin-top: 24px;
+    margin-left: 24px;
+    margin-bottom: 16px;
+    max-width: 49%;
+    z-index: 9;
+    
 }
+/*-----pubs------*/
+#back {
+    margin: 24px;
+}
+
+.logo1 {
+    margin: 24px;
+}
+
+#res {
+    margin: 24px;
+}
+
+.x {
+    position: absolute;
+    color: orange;
+    font-family: Poppins;
+    margin-left: 15%;
+    margin-top: -5%;
+    z-index: 10;
+}
+
+.text {
+    position: absolute;
+    color: orange;
+    font-family: Poppins;
+    margin-left: 20%;
+    margin-top: -5%;
+    z-index: 10;
+}
+
+.action {
+    color: orange;
+}
+
+
+
+    #tabledata li {
+        margin-right: 3%;
+        font-size: 20px;
+    }
+
+    #tabledata p {
+        margin-top: 0.6%;
+        font-size: 14px;
+        color: #D3D3D3;
+    }
+
+    #tabledata img {
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+
 /* Optional: Makes the sample page fill the window. */
 html, body {
+  
     height: 100%;
     margin: 0;
     padding: 0;
