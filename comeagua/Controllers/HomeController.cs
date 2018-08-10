@@ -1,4 +1,6 @@
-﻿using System;
+﻿using comeagua.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,9 +12,18 @@ namespace comeagua.Controllers
     {
         public ActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+
+
+                var maneger = new ApplicationUserManager(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+                var MyUser = maneger.Users.Where(x => x.UserName == HttpContext.User.Identity.Name).FirstOrDefault();
+                ViewBag.ImageProfile = MyUser.Image;
+            }
             //ViewBag.Log = Session["UserLOGIN"] == null ? "Nao logado" : Session["UserLOGIN"].ToString();
             // Para deslogar coloca Sesson.Abort ou 
            // Session.Abandon();
+
             return View();
         }
         //public ActionResult SearchPage()

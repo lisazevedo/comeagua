@@ -155,14 +155,14 @@ namespace comeagua.Controllers
         {
             if (ModelState.IsValid)
             {
-             
-                string fileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
-                string extension = Path.GetExtension(model.ImageFile.FileName);
-                fileName = fileName + extension;
-                model.ImagePath = "~/Image/" + fileName;
-                fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
-                model.ImageFile.SaveAs(fileName);
-          
+                if (model.ImagePath != null  ){
+                    string fileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
+                    string extension = Path.GetExtension(model.ImageFile.FileName);
+                    fileName = fileName + extension;
+                    model.ImagePath = "Image/" + fileName;
+                    fileName = Path.Combine(Server.MapPath("Image/"), fileName);
+                    model.ImageFile.SaveAs(fileName);
+                }
 
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FirstName = model.FirstName,LastName=model.LastName
                 ,Image=model.ImagePath,Gender=model.Gender};
