@@ -195,6 +195,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Graph\Edge.cs" />
+    <Compile Include="Graph\Graph.cs" />
+    <Compile Include="Graph\Vertex.cs" />
     <Compile Include="Migrations\201808082017270_d.cs" />
     <Compile Include="Migrations\201808082017270_d.Designer.cs">
       <DependentUpon>201808082017270_d.cs</DependentUpon>
