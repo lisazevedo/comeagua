@@ -111,6 +111,9 @@
                 if (data[i].opening_hours != undefined && data[i].opening_hours.open_now) {
                     html += '<li style="color: #F69D1D">Aberto agora!</li>';
                 }
+                else {
+                    html += '<li style="color: RED ">Fechado</li>';
+                }
                 if (data[i].rating != undefined) {
                     var fstars = data[i].rating;
                     html += '<img style="width: 1.2%" src="../../assets/star.png"></img>';
@@ -152,8 +155,10 @@
 </body>
 </html>
 <style>
-    #back{
-        margin: 24px;
+
+    #map {
+        height: 50%;
+        margin-top: 10px;
     }
 
     .logo1{
