@@ -15,41 +15,39 @@
     
 }
 /*-----pubs------*/
-#back {
-    margin: 24px;
-}
+    #back {
+        margin: 24px;
+    }
 
-.logo1 {
-    margin: 24px;
-}
+    .logo1 {
+        margin: 24px;
+    }
 
-#res {
-    margin: 24px;
-}
+    #res {
+        margin: 24px;
+    }
 
-.x {
-    position: absolute;
-    color: orange;
-    font-family: Poppins;
-    margin-left: 15%;
-    margin-top: -5%;
-    z-index: 10;
-}
+    .x {
+        position: absolute;
+        color: orange;
+        font-family: Poppins;
+        margin-left: 15%;
+        margin-top: -5%;
+        z-index: 10;
+    }
 
-.text {
-    position: absolute;
-    color: orange;
-    font-family: Poppins;
-    margin-left: 20%;
-    margin-top: -5%;
-    z-index: 10;
-}
+    .text {
+        position: absolute;
+        color: orange;
+        font-family: Poppins;
+        margin-left: 20%;
+        margin-top: -5%;
+        z-index: 10;
+    }
 
-.action {
-    color: orange;
-}
-
-
+    .action {
+        color: orange;
+    }
 
     #tabledata li {
         margin-right: 3%;
@@ -68,8 +66,8 @@
     }
 
 /* Optional: Makes the sample page fill the window. */
+
 html, body {
-  
     height: 100%;
     margin: 0;
     padding: 0;
