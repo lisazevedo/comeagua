@@ -197,14 +197,6 @@
     <Compile Include="Graph\Edge.cs" />
     <Compile Include="Graph\Graph.cs" />
     <Compile Include="Graph\Vertex.cs" />
-    <Compile Include="Migrations\201808082017270_d.cs" />
-    <Compile Include="Migrations\201808082017270_d.Designer.cs">
-      <DependentUpon>201808082017270_d.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808091801442_dd.cs" />
-    <Compile Include="Migrations\201808091801442_dd.Designer.cs">
-      <DependentUpon>201808091801442_dd.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Infra\DBO\DboPub.cs" />
     <Compile Include="Models\Infra\DBO\DboUser.cs" />
@@ -366,14 +358,6 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808082017270_d.resx">
-      <DependentUpon>201808082017270_d.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808091801442_dd.resx">
-      <DependentUpon>201808091801442_dd.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

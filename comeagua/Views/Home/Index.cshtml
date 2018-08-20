@@ -61,11 +61,11 @@
             <div class="dropdown">
                 <button class="dropbtn"> <font class="txt_suaconta">Sua conta</font> </button>
                 <div class="dropdown-content">
-                  
-                        @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-                  
+
+                    @*@Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
+                    <p class="nome_profile">@User.Identity.GetUserName()</p>
                     <img class="image_profile" src="@ViewBag.ImageProfile" />
-                    <a href="javascript:document.getElementById('logoutForm').submit()">Fazer logoff</a>
+                    <a  class ="logoff" href="javascript:document.getElementById('logoutForm').submit()">Fazer logoff</a>
                 </div>
             </div>
 
@@ -90,6 +90,9 @@
 </html>
 
 <style>
+    body {
+        overflow-x: hidden;
+    }
     #loginLink {
         position: absolute;
         font-family: Poppins;
@@ -101,12 +104,10 @@
         border-radius: 30px;
         padding: 6px;
     }
-
         #loginLink:hover {
             color: lightcoral;
             text-decoration: none;
         }
-
     .dropbtn {
         padding: 16px;
         font-size: 16px;
@@ -114,44 +115,37 @@
         border-radius: 30px;
         background-color: white;
         border-style: solid;
-        border-color: orange;
-    }
-
-    /* The container <div> - needed to position the dropdown content */
+        border-color: orange;        
+        left: 500px;       
+    }    
     .dropdown {
         position: relative;
         display: inline-block;
+        left: 500px;
     }
-
-    /* Dropdown Content (Hidden by Default) */
     .dropdown-content {
         display: none;
         position: absolute;
-        background-color: white;
-        min-width: 160px;
+        background-color: white;      
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
+        float:right;
+        width: 300px;
     }
-
-        /* Links inside the dropdown */
-    .dropdown-content a {
+        .dropdown-content a {
             color: orange;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
-        }
-
-            /* Change color of dropdown links on hover */
+            width: 300px;
+        }          
     .dropdown-content a:hover {
                 background-color: white;
             }
-
-    /* Show the dropdown menu on hover */
     .dropdown:hover .dropdown-content {
         display: block;
     }
-
-    /* Change the background color of the dropdown button when the dropdown content is shown */
+  
     .dropdown:hover .dropbtn {
         color: lightcoral;
     }
@@ -159,12 +153,170 @@
     .txt_suaconta {
         color: orange;
     }
-    .nome_profile{
-        max-width: 50%;
-        width:25%;
-
+    .nome_profile {
+        max-width: 100px;
+        font-size: 50px;
     }
-    .image_profile{
-
+    .image_profile {
+        max-width: 300px;       
     }
+    .logoff {
+       
+    }
+    #beer_id {       
+        margin-left: 650px;
+        width: 700px;
+        margin-top: -70px;
+    }
+    #logo_id {
+        width: 150px;
+    }
+    .Text_title {
+        color: black;
+        font-family: sans-serif;
+        font-size: 30px;
+        margin-top: 90px;
+        margin-left: 50px;
+      
+    }
+
+    .Text_desc {
+        margin-top: 200px;
+        margin-left: 50px;
+        font-size: 30px;
+        font-family: sans-serif;
+      
+    }
+    .Text_event {
+        position: absolute;
+        font-family: sans-serif;
+        font-size: 30px;
+        margin-left: 650px;
+        margin-top: 120px;      
+    }
+    #criar_evento_id {
+        position: absolute;
+        margin-top: 90px;
+        margin-left: 1000px;
+        width: 250px;
+    }
+    .retangle {
+        position: absolute;
+        background-color: orange;
+        width: 1600px;
+        height: 550px;
+        margin-top: 800px;
+        justify-content: center;
+        align-items: center;
+    }
+    #beer2_id {
+        position: absolute;
+        width: 500px;
+        margin-top: 90px;
+        margin-left: 15px;
+    }
+    .text_desc_criar_evento {
+        position: absolute;
+        color: white;
+        font-size: 40px;
+        margin-top: 250px;
+        margin-left: 650px;
+       
+    }
+    form.example input[type=text] {
+        position: absolute;
+        padding: 15px;
+        font-size: 20px;
+        font-family: sans-serif;
+        border: 3px solid Black;
+        float: left;
+        width: 500px;
+        background: white;
+        margin-top: 600px;
+        margin-left: 400px;
+        border-radius: 30px;
+        font-family: Poppins, Helvetica, sans-serif;
+        outline: 0;
+    }
+
+    form.example button {
+        position: absolute;
+        float: left;
+        width: 80px;
+        padding: 10px;
+        background: Orange;
+        color: white;
+        font-size: 30px;
+        border-left: none; 
+        cursor: pointer;
+        margin-top: 600px;
+        margin-left: 905px;
+        border-radius: 30px;
+    }
+        form.example button:hover {
+        }
+
+    /* Clear floats */
+    form.example::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    #login_id {
+        position: absolute;
+        width: 7%;
+        margin-top: -3.5%;
+    }
+
+    #equipe_id {
+        position: absolute;
+        margin-left: 600px;
+        margin-top: 1400px;
+    }
+
+    #img_caio_id {
+        position: absolute;
+        margin-left: 350px;
+        margin-top: 1600px;
+        border-radius: 50%;
+        width: 150px;
+    }
+
+    #img_lis_id {
+        position: absolute;
+        margin-left: 600px;
+        margin-top: 1600px;
+        border-radius: 50%;
+        width: 150px;
+    }
+
+    #img_leo_id {
+        position: absolute;
+        margin-left: 850px;
+        margin-top: 1600px;
+        border-radius: 50%;
+        width: 150px;
+    }
+
+    .caio_equipe {
+        position: absolute;
+        color: gray;
+        margin-left: 330px;
+        margin-top: 1750px;
+    }
+
+    .lis_equipe {
+        position: absolute;
+        color: gray;
+        margin-left: 600px;
+        margin-top: 1750px;
+    }
+
+    .leo_equipe {
+        position: absolute;
+        color: gray;
+        margin-left: 900px;
+        margin-top: 1750px;
+    }
+
 </style>
