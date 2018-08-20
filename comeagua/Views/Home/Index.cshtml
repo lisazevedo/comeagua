@@ -61,8 +61,10 @@
             <div class="dropdown">
                 <button class="dropbtn"> <font class="txt_suaconta">Sua conta</font> </button>
                 <div class="dropdown-content">
-                    @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-                    <img src="@ViewBag.ImageProfile" />
+                  
+                        @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                  
+                    <img class="image_profile" src="@ViewBag.ImageProfile" />
                     <a href="javascript:document.getElementById('logoutForm').submit()">Fazer logoff</a>
                 </div>
             </div>
@@ -132,7 +134,7 @@
     }
 
         /* Links inside the dropdown */
-        .dropdown-content a {
+    .dropdown-content a {
             color: orange;
             padding: 12px 16px;
             text-decoration: none;
@@ -140,7 +142,7 @@
         }
 
             /* Change color of dropdown links on hover */
-            .dropdown-content a:hover {
+    .dropdown-content a:hover {
                 background-color: white;
             }
 
@@ -156,5 +158,13 @@
 
     .txt_suaconta {
         color: orange;
+    }
+    .nome_profile{
+        max-width: 50%;
+        width:25%;
+
+    }
+    .image_profile{
+
     }
 </style>
