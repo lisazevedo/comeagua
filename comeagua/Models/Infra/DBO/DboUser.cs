@@ -28,36 +28,36 @@ namespace comeagua.Infra.DBO
             return "E-mail já cadastrado, tente novamente com outro e-mail.";
         }
 
-        //public static void DeleteUser(int id)
+        //public static void deleteuser(int id)
         //{
-        //    var db = new Contexto();
-        //    db.Start();
-        //    var user = new User { ID = id };
-        //    db.Users.Attach(user);
-        //    db.Users.Remove(user);
+        //    var db = new contexto();
+        //    db.start();
+        //    var user = new user { id = id };
+        //    db.users.attach(user);
+        //    db.users.remove(user);
 
-        //    db.SaveChanges();
+        //    db.savechanges();
 
         //}
 
-        //public static void UpdateUser(User user)
+        //public static void updateuser(user user)
         //{
-        //    var db = new Contexto();
+        //    var db = new contexto();
 
-        //    db.Start();
-        //    db.Users.Attach(user);
-        //    db.Entry(user).State = System.Data.Entity.EntityState.Modified;
-        //    db.SaveChanges();
+        //    db.start();
+        //    db.users.attach(user);
+        //    db.entry(user).state = system.data.entity.entitystate.modified;
+        //    db.savechanges();
         //}
 
-        //public static string ExistUser(string email, string password)
+        //public static string existuser(string email, string password)
         //{
-        //    var db = new Contexto();
-        //    var Query = (from Log in db.Users where Log.Email == email select Log);
+        //    var db = new contexto();
+        //    var query = (from log in db.users where log.email == email select log);
 
-        //    if (Query is null)
+        //    if (query is null)
         //    {
-        //        return "E-mail nao cadastrado.";
+        //        return "e-mail nao cadastrado.";
         //    }
         //    return ""; 
         //}

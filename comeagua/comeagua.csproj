@@ -197,6 +197,10 @@
     <Compile Include="Graph\Edge.cs" />
     <Compile Include="Graph\Graph.cs" />
     <Compile Include="Graph\Vertex.cs" />
+    <Compile Include="Migrations\201808211828010_UpdateAddress.cs" />
+    <Compile Include="Migrations\201808211828010_UpdateAddress.Designer.cs">
+      <DependentUpon>201808211828010_UpdateAddress.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Infra\DBO\DboPub.cs" />
     <Compile Include="Models\Infra\DBO\DboUser.cs" />
@@ -358,6 +362,11 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201808211828010_UpdateAddress.resx">
+      <DependentUpon>201808211828010_UpdateAddress.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

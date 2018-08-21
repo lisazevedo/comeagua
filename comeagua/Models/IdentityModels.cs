@@ -42,7 +42,7 @@ namespace comeagua.Models
         {
             return new ApplicationDbContext();
         }
-        // LIS FEZ TOTO AQUI
+       
         public void Start()
         {
             this.Database.CreateIfNotExists();
