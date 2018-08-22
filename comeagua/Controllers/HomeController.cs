@@ -31,9 +31,14 @@ namespace comeagua.Controllers
             //Session["UserLOGIN"] = "Lis";
             return View();
         }
-        public ActionResult Evento()
+        public ActionResult Evento(String nome_bar,String data,String time)
         {
-
+            if (User.Identity.IsAuthenticated)
+            {
+                var maneger = new ApplicationUserManager(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+                var MyUser = maneger.Users.Where(x => x.UserName == HttpContext.User.Identity.Name).FirstOrDefault();
+                ViewBag.ImageProfile = MyUser.Image;
+            }
             return View();
         }
     }

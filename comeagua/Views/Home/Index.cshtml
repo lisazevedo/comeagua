@@ -30,7 +30,7 @@
     </form>
     <section>
         <p class="Text"> <font class="Text_title"><b>Encontre o bar perfeito para você!!</b></font>  </p>
-        <p class="Text_desc"> <font color="gray"> Pesquise diferentes lugares de Salvador e descubra diferentes bares, diferentes pessoas e diferentes experiências.</p>
+        <p class="Text_desc"><font color="gray"> Pesquise diferentes lugares de Salvador e descubra diferentes bares, diferentes pessoas e diferentes experiências.</p>
     </section>
     <div class="retangle">
         <img id="beer2_id" src="assets/beer2.png">
@@ -41,7 +41,7 @@
                 <img id="criar_evento_id" src="assets/criar_evento.png">
             </a>
         </form>
-                <p><font class="text_desc_criar_evento">Mostre aos seus amigos novos <br />bares e marque com a galera <br />de se encontrar em algum lugar !!! </font></p>
+        <p><font class="text_desc_criar_evento">Mostre aos seus amigos novos <br />bares e marque com a galera <br />de se encontrar em algum lugar !!! </font></p>
     </div>
     <img src="assets/equipe.png" id="equipe_id">
     <a href="https://github.com/caiosmendes96"><img src="assets/caio.jpg" id="img_caio_id"></a>
@@ -59,25 +59,27 @@
     @using Microsoft.AspNet.Identity
     @if (Request.IsAuthenticated)
     {
+        <div class="dropdown">
+            <button class="dropbtn"> <font class="txt_suaconta">Sua conta</font> </button>
+            <div class="dropdown-content">
+                <p class="nome_profile">@User.Identity.GetUserName()</p>
+                <img class="image_profile" src="@ViewBag.ImageProfile" />
+                <a class="logoff" href="javascript:document.getElementById('logoutForm').submit()">Fazer logoff</a>
+            </div>
+        </div>
+
         using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
         {
             @Html.AntiForgeryToken()
-            <div class="dropdown">
-                <button class="dropbtn"> <font class="txt_suaconta">Sua conta</font> </button>
-                <div class="dropdown-content">             
-                    <p class="nome_profile">@User.Identity.GetUserName()</p>
-                    <img class="image_profile" src="@ViewBag.ImageProfile" />
-                    <a  class ="logoff" href="javascript:document.getElementById('logoutForm').submit()">Fazer logoff</a>
-                </div>
-            </div>
+
         }
     }
     else
     {
 
-            <div class="login">
-                @Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
-            </div>
+        <div class="login">
+            @Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+        </div>
     }
 </body>
 </html>
@@ -202,6 +204,9 @@
         margin-top: 90px;
         margin-left: 1000px;
         width: 250px;
+    }
+    #criar_evento_id:hover {
+       color:slategray;
     }
     .retangle {
         position: absolute;
