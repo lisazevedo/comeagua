@@ -12,6 +12,7 @@ namespace comeagua.Infra.Tables
         public int ID { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
+        public float Rate { get; set; }        
 
         //public int Tag_PubID { get; set; }
         [Index(IsUnique = true)]

@@ -201,6 +201,14 @@
     <Compile Include="Migrations\201808211828010_UpdateAddress.Designer.cs">
       <DependentUpon>201808211828010_UpdateAddress.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808220038169_Mudança de ReviewId para FLoat.cs" />
+    <Compile Include="Migrations\201808220038169_Mudança de ReviewId para FLoat.Designer.cs">
+      <DependentUpon>201808220038169_Mudança de ReviewId para FLoat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808220054551_Rate Elemnt.cs" />
+    <Compile Include="Migrations\201808220054551_Rate Elemnt.Designer.cs">
+      <DependentUpon>201808220054551_Rate Elemnt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Infra\DBO\DboPub.cs" />
     <Compile Include="Models\Infra\DBO\DboUser.cs" />
@@ -367,6 +375,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201808211828010_UpdateAddress.resx">
       <DependentUpon>201808211828010_UpdateAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808220038169_Mudança de ReviewId para FLoat.resx">
+      <DependentUpon>201808220038169_Mudança de ReviewId para FLoat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808220054551_Rate Elemnt.resx">
+      <DependentUpon>201808220054551_Rate Elemnt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
