@@ -17,7 +17,9 @@
 
     <header>
         <div class="logo1">
-            <img id="logo_id" src="~/assets/logo.png">          
+            <a href='@Url.Action("Index", "Home")'>
+                <img class="logo_id" src='@Url.Content("~/assets/logo.png")' />
+            </a>      
         </div>
     </header>
     <canvas id="UgCanvas" width="300" height="100">Login </canvas>
@@ -78,7 +80,15 @@
 </html>
 
 <style>
+    body{
+        margin:0;
 
+    }
+    .logo_id {
+        
+        width: 10%;
+        margin-top:0px;
+    }
   
 </style>
 

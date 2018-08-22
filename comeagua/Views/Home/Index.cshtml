@@ -35,9 +35,13 @@
     <div class="retangle">
         <img id="beer2_id" src="assets/beer2.png">
         <p><font class="Text_event" color="white"><b>Crie seu evento: </b></font> </p>
-        <a href="#">
-            <img id="criar_evento_id" src="assets/criar_evento.png"> <a />
-            <p><font class="text_desc_criar_evento">Mostre aos seus amigos novos <br />bares e marque com a galera <br />de se encontrar em algum lugar !!! </font></p>
+
+        <form class="example" action="~/Home/Evento">
+            <a href="/Home/Evento">
+                <img id="criar_evento_id" src="assets/criar_evento.png">
+            </a>
+        </form>
+                <p><font class="text_desc_criar_evento">Mostre aos seus amigos novos <br />bares e marque com a galera <br />de se encontrar em algum lugar !!! </font></p>
     </div>
     <img src="assets/equipe.png" id="equipe_id">
     <a href="https://github.com/caiosmendes96"><img src="assets/caio.jpg" id="img_caio_id"></a>
@@ -60,32 +64,21 @@
             @Html.AntiForgeryToken()
             <div class="dropdown">
                 <button class="dropbtn"> <font class="txt_suaconta">Sua conta</font> </button>
-                <div class="dropdown-content">
-
-                    @*@Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
+                <div class="dropdown-content">             
                     <p class="nome_profile">@User.Identity.GetUserName()</p>
                     <img class="image_profile" src="@ViewBag.ImageProfile" />
                     <a  class ="logoff" href="javascript:document.getElementById('logoutForm').submit()">Fazer logoff</a>
                 </div>
             </div>
-
-
-
-
-
         }
     }
     else
     {
 
-        <i>
-
-        </i>
-        @Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
-
+            <div class="login">
+                @Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+            </div>
     }
-
-
 </body>
 </html>
 
@@ -93,6 +86,12 @@
     body {
         overflow-x: hidden;
     }
+    #copyright_id {
+        position: absolute;
+        margin-top: 2000px;
+        width: 150px;
+    }
+
     #loginLink {
         position: absolute;
         font-family: Poppins;
@@ -132,7 +131,7 @@
         float:right;
         width: 300px;
     }
-        .dropdown-content a {
+    .dropdown-content a {
             color: orange;
             padding: 12px 16px;
             text-decoration: none;
@@ -150,48 +149,52 @@
         color: lightcoral;
     }
 
-    .txt_suaconta {
+    .txt_suaconta{
         color: orange;
     }
-    .nome_profile {
+    .nome_profile{
         max-width: 100px;
         font-size: 50px;
     }
-    .image_profile {
+    .image_profile{
         max-width: 300px;       
     }
-    .logoff {
+    .logoff{
        
     }
-    #beer_id {       
-        margin-left: 650px;
-        width: 700px;
+    #beer_id{       
+        margin-left: 950px;
+        width: 500px;
         margin-top: -70px;
+        position:absolute;
     }
     #logo_id {
+        position: absolute;
         width: 150px;
+        margin-top: 0px;
     }
     .Text_title {
         color: black;
         font-family: sans-serif;
         font-size: 30px;
-        margin-top: 90px;
+        margin-top: 320px;
         margin-left: 50px;
+        position:absolute;
       
     }
 
     .Text_desc {
-        margin-top: 200px;
+        margin-top: 400px;
         margin-left: 50px;
         font-size: 30px;
         font-family: sans-serif;
-      
+        position: absolute;
     }
     .Text_event {
         position: absolute;
         font-family: sans-serif;
         font-size: 30px;
-        margin-left: 650px;
+        margin-left: 700px;
         margin-top: 120px;      
     }
     #criar_evento_id {
@@ -264,8 +267,13 @@
     }
     #login_id {
         position: absolute;
-        width: 7%;
-        margin-top: -3.5%;
+        width: 50px;
+        margin-top: 10px;
+    }
+    .login{
+        position:absolute;
+        margin-top:15px;
+        margin-left: 500px;
     }
 
     #equipe_id {
