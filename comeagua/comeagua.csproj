@@ -210,6 +210,7 @@
       <DependentUpon>201808220054551_Rate Elemnt.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Infra\DBO\DboEvent.cs" />
     <Compile Include="Models\Infra\DBO\DboPub.cs" />
     <Compile Include="Models\Infra\DBO\DboUser.cs" />
     <Compile Include="Models\Infra\Tables\Address.cs" />

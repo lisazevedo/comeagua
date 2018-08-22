@@ -10,6 +10,7 @@ namespace comeagua.Infra.Tables
         public int ID { get; set; }
 
         public int EventID { get; set; }
-        public int UserID { get; set; }
+
+        public string AspNetUserID { get; set; }
     }
 }

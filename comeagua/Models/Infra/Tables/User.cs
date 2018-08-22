@@ -7,6 +7,7 @@ namespace comeagua.Infra.Tables
 {
     public class User
     {
+        public static object Identity { get; internal set; }
         public int ID { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
