@@ -219,7 +219,7 @@
     <Compile Include="Models\Infra\Tables\Facebook\Picture.cs" />
     <Compile Include="Models\Infra\Tables\Guest.cs" />
     <Compile Include="Models\Infra\Tables\Holiday.cs" />
-    <Compile Include="Models\Infra\Tables\Log.cs" />
+    <Compile Include="Models\Infra\Tables\ErrorLog.cs" />
     <Compile Include="Models\Infra\Tables\Operation.cs" />
     <Compile Include="Models\Infra\Tables\Photo.cs" />
     <Compile Include="Models\Infra\Tables\Pub.cs" />
