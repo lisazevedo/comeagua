@@ -5,8 +5,9 @@ using System.Web;
 
 namespace comeagua.Infra.Tables
 {
-    public class Log
+    public class ErrorLog
     {
-
+        string error;
+        DateTime Date;
     }
 }
