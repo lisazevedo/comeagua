@@ -13,7 +13,7 @@ namespace comeagua.Infra.Tables
 
         public int PubID { get; set; }
         public int UserID { get; set; }
-
+        public DateTime Hour { get; set; }
         public virtual List<Guest> Guests { get; set; }
     }
 }

@@ -33,8 +33,7 @@ namespace comeagua.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+        public ApplicationDbContext(): base("DefaultConnection", throwIfV1Schema: false)
         {
         }
 

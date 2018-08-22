@@ -33,7 +33,7 @@ namespace comeagua.Infra.DBO
 
         }
 
-        public void UpdateUser(Pub pub)
+        public void UpdateUser(Pub pub) //pq o nome UpdateUser?
         {
             var db = new ApplicationDbContext();
 
