@@ -31,6 +31,10 @@ namespace comeagua.Controllers
             //Session["UserLOGIN"] = "Lis";
             return View();
         }
-     
+        public ActionResult Evento()
+        {
+
+            return View();
+        }
     }
 }
