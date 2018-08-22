@@ -17,7 +17,7 @@ namespace comeagua.Models
         public string LastName { get; set; }
         //public DateTime BirthDate { get; set; }
         public String Image { get; set; }
-        public int Gender { get; set; } 
+        public int Gender { get; set; }
         public int ReviewID { get; set; }
         public virtual List<Event> Events { get; set; }
 
@@ -33,7 +33,7 @@ namespace comeagua.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext(): base("DefaultConnection", throwIfV1Schema: false)
+        public ApplicationDbContext() : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
 
@@ -41,23 +41,23 @@ namespace comeagua.Models
         {
             return new ApplicationDbContext();
         }
-       
+
         public void Start()
         {
             this.Database.CreateIfNotExists();
         }
 
-        public virtual DbSet<User> Users { get; set; }
+        //public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Pub> Pubs { get; set; }
-        public virtual DbSet<Operation> Operations { get; set; }
-        public virtual DbSet<Address> Addresses { get; set; }
-        public virtual DbSet<Photo> Photos { get; set; }
-        public virtual DbSet<Tag> Tags { get; set; }
+        //public virtual DbSet<Operation> Operations { get; set; }
+        //public virtual DbSet<Address> Addresses { get; set; }
+        //public virtual DbSet<Photo> Photos { get; set; }
+        //public virtual DbSet<Tag> Tags { get; set; }
         // public virtual DbSet<Tag_Pub>Tags_Pubs { get; set; }
         public virtual DbSet<Event> Events { get; set; }
-        public virtual DbSet<Holiday> Holidays { get; set; }
-        public virtual DbSet<Guest> Guests { get; set; }
-        public virtual DbSet<Week> Weeks { get; set; }
+        //public virtual DbSet<Holiday> Holidays { get; set; }
+        //public virtual DbSet<Guest> Guests { get; set; }
+        //public virtual DbSet<Week> Weeks { get; set; }
         public virtual DbSet<Review> Reviews { get; set; }
     }
 }
