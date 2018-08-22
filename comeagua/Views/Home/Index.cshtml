@@ -64,19 +64,12 @@
             @Html.AntiForgeryToken()
             <div class="dropdown">
                 <button class="dropbtn"> <font class="txt_suaconta">Sua conta</font> </button>
-                <div class="dropdown-content">
-
-                    @*@Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
+                <div class="dropdown-content">             
                     <p class="nome_profile">@User.Identity.GetUserName()</p>
                     <img class="image_profile" src="@ViewBag.ImageProfile" />
                     <a  class ="logoff" href="javascript:document.getElementById('logoutForm').submit()">Fazer logoff</a>
                 </div>
             </div>
-
-
-
-
-
         }
     }
     else
@@ -86,8 +79,6 @@
                 @Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
             </div>
     }
-
-
 </body>
 </html>
 
@@ -95,6 +86,12 @@
     body {
         overflow-x: hidden;
     }
+    #copyright_id {
+        position: absolute;
+        margin-top: 2000px;
+        width: 150px;
+    }
+
     #loginLink {
         position: absolute;
         font-family: Poppins;
@@ -197,7 +194,7 @@
         position: absolute;
         font-family: sans-serif;
         font-size: 30px;
-        margin-left: 850px;
+        margin-left: 700px;
         margin-top: 120px;      
     }
     #criar_evento_id {

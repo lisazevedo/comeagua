@@ -10,7 +10,9 @@
 
     <header>
         <div class="logo1">
-            <a href="~/Views/Home/Index"><img id="logo_id" src="~/assets/logo.png"></a>
+            <a href='@Url.Action("Index", "Home")'>
+                <img class="logo_id" src='@Url.Content("~/assets/logo.png")' />
+            </a>
         </div>
     </header>
  

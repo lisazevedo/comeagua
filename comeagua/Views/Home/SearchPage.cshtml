@@ -14,12 +14,10 @@
 <body>
     <header>
         <div class="logo1">
-            <img id="logo_id" src="~/assets/logo.png">
-        </div>
-        @Html.ActionLink("Pagina Inicial", "Index", "Home", new { @class = "action" })
-        <form action="~/Home/Index">
-            <a href="~/Views/Home/Index"><p><font class="x">Pagina inicial teste </font> </p></a>
-        </form>
+            <a href='@Url.Action("Index", "Home")'>
+                <img class="logo_id" src='@Url.Content("~/assets/logo.png")' />
+            </a>
+        </div>       
     </header>
     <p id="res">Resultados para: @ViewBag.Busca</p>
     <div id="map"></div>
@@ -159,10 +157,11 @@
     }
 
     .logo1{
-        margin: 24px;
+        margin-top: 0px;
     }
     #res{
-        margin: 24px;
+        margin: 0%;
+        width:20%;
     }
     .x {
         position:absolute;

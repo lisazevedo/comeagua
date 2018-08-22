@@ -18,62 +18,68 @@
 <body>
     <header>
         <div class="logo">
-            <img id="logo_id" src="~/assets/logo.png">
-        </div>
-        <div>
-            <form class="example" @*action="~/Home/SearchPage*@ ">
-                <input type="text" placeholder="Aonde você deseja ir?" id="busca" name="busca">
-            </form>
+            @*<a href="~/Home/Index"><img id="logo_id" src="~/assets/logo.png"></a>*@
+            <a href='@Url.Action("Index", "Home")'>
+                <img class="logo_id" src='@Url.Content("~/assets/logo.png")' />
+            </a>
         </div>
     </header>
     <div class="retangle">
-
-     </div>
-
-        @using Microsoft.AspNet.Identity
-        @if (Request.IsAuthenticated)
+        <p class="text_evento"> Crie seu evento !!!</p>
+        <form class="example" @*action="~/Home/SearchPage*@ ">
+            <p class="text">Nome do bar:</p>
+            <input type="text" placeholder="Digite o nome do bar" id="busca" name="busca" required>
+            <p class="text_data">Data:</p>
+            <input class="btn_date" min="2018-08-21" id="date" type="date" required>
+            <input class ="btn_time" type="time" id="appt-time" name="appt-time" required />
+            <p class="text_time">Horário:</p>
+        </form>
+    </div>
+  
+    @using Microsoft.AspNet.Identity
+    @if (Request.IsAuthenticated)
+    {
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
         {
-            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-            {
-                @Html.AntiForgeryToken()
-                <div class="dropdown">
-                    <button class="dropbtn"> <font class="txt_suaconta">Sua conta</font> </button>
-                    <div class="dropdown-content">
+            @Html.AntiForgeryToken()
+            <div class="dropdown">
+                <button class="dropbtn"> <font class="txt_suaconta">Sua conta</font> </button>
+                <div class="dropdown-content">
 
-                        @*@Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
-                        <p class="nome_profile">@User.Identity.GetUserName()</p>
-                        <img class="image_profile" src="@ViewBag.ImageProfile" />
-                        <a class="logoff" href="javascript:document.getElementById('logoutForm').submit()">Fazer logoff</a>
-                    </div>
+                    @*@Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
+                    <p class="nome_profile">@User.Identity.GetUserName()</p>
+                    <img class="image_profile" src="@ViewBag.ImageProfile" />
+                    <a class="logoff" href="javascript:document.getElementById('logoutForm').submit()">Fazer logoff</a>
                 </div>
-            }
+            </div>
         }
-        else
-        {
-            <i>
-            </i>
-            @Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
-        }
+    }
+    else
+    {
+        <i>
+        </i>
+        @Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+    }
 
 </body>
 
 <style>
     body {
         overflow-x: hidden;
-        margin:0;
-
+        margin: 0;
+        overflow-y: hidden;
     }
     form.example input[type=text] {
         position: absolute;
         padding: 15px;
-        font-size: 20px;
+        font-size: 12px;
         font-family: sans-serif;
         border: 3px solid Black;
         float: left;
         width: 500px;
         background: white;
-        margin-top: 600px;
-        margin-left: 400px;
+        margin-top: 100px;
+        margin-left: 300px;
         border-radius: 30px;
         font-family: Poppins, Helvetica, sans-serif;
         outline: 0;
@@ -82,16 +88,16 @@
     form.example button {
         position: absolute;
         float: left;
-        width: 80px;
+        width: 50px;
         padding: 10px;
         background: Orange;
         color: white;
-        font-size: 30px;
+        font-size: 12px;
         border-left: none;
         cursor: pointer;
         margin-top: 600px;
         margin-left: 905px;
-        border-radius: 30px;
+        border-radius: 10px;
     }
     #logo_id {
         width: 150px;
@@ -103,8 +109,53 @@
         background-color: orange;
         width: 1600px;
         height: 550px;
-        margin-top: 200px;
+        margin-top: 50px;
         justify-content: center;
         align-items: center;
+    }
+    .text_evento {
+        font-family: Poppins;
+        color:white;
+        font-size:30px;
+        margin-left: 500px;
+    }
+    .text {
+        font-family: Poppins;
+        color: white;
+        font-size: 30px;
+        margin-left: 30px;
+        margin-top: 100px;
+    }
+    .btn_date {
+        position: absolute;
+        margin-left: 300px;
+        margin-top: 190px;
+        border-radius: 300px;
+        border-color: black;
+        outline: 0;
+    }
+    .text_data {
+        position:absolute;
+        font-family: Poppins;
+        color: white;
+        font-size: 30px;
+        margin-left: 30px;
+        margin-top: 180px;
+    }
+    .text_time {
+        position: absolute;
+        font-family: Poppins;
+        color: white;
+        font-size: 30px;
+        margin-left: 30px;
+        margin-top: 260px;
+    }
+    .btn_time {
+        position: absolute;
+        margin-left: 300px;
+        margin-top: 270px;
+        border-radius: 30px;
+        border-color: black;
+        outline: 0;
     }
 </style>
