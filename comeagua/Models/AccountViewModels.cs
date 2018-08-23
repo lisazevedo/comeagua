@@ -154,6 +154,9 @@ namespace comeagua.Models
         [DataType(DataType.DateTime)]
         [Display(Name = "Hora do Evento")]
         public DateTime Hour { get; set; }
+
+        [Required]
+        public int Codigo { get; set; }
     }
 
 }

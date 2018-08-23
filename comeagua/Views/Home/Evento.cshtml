@@ -1,6 +1,4 @@
 ﻿@model comeagua.Models.CreateEventViewModel
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -59,25 +57,20 @@
             <a><input type="submit" class="btn_register" value="Criar o evento" onclick="alert('Código do evento: @ViewBag.CodigoEvento')" /></a>
             
         </form>
-
-            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-            {
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
             @Html.AntiForgeryToken()
-
-
         }
-
-    }
-    else
-    {
-
+     }
+     else
+     {
         @Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
         <input type="submit" class="btn_register" value="Faça o login para criar um evento" />
-    }
-
+     }
 </body>
 
 <style>
+
     body {
         overflow-x: hidden;
         margin: 0;
