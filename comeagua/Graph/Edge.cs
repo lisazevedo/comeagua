@@ -9,6 +9,6 @@ namespace comeagua.Graph
     {
         public Vertex V1 { get; set; }
         public Vertex V2 { get; set; }
-        public DateTime Weight { get; set; }
+        public List<DateTime> Weight { get; set; }
     }
 }

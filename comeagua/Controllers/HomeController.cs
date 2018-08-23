@@ -11,7 +11,7 @@ namespace comeagua.Controllers
 {
     public class HomeController : Controller
     {
-        string codigoale;
+        static string codigoale;
         public ActionResult Index()
         {
             if (User.Identity.IsAuthenticated)
@@ -40,12 +40,13 @@ namespace comeagua.Controllers
             var db = new ApplicationDbContext();
             db.Start();
             var pub = (from p in db.Pubs where p.Name.Contains(model.BarName) select p).First();
-
-            //var pub = db.Pubs.Where(p => p.ID == evento.PubID).FirstOrDefault();        
+     
             if (pub != null)
             {
                 if (User.Identity.IsAuthenticated)
                 {
+                    
+                    //model.DateEvent.Hour = model.Hour;
                     var maneger = new ApplicationUserManager(new UserStore<ApplicationUser>(new ApplicationDbContext()));
                     var MyUser = maneger.Users.Where(x => x.UserName == HttpContext.User.Identity.Name).FirstOrDefault();
 

@@ -48,7 +48,7 @@ namespace comeagua.Models.Infra.DBO
             var db = new ApplicationDbContext();
             db.Start();
            
-            var Query = (from e in db.Events where e.PubID == idPub && e.Date == DateTime.Now select e).ToList();
+            var Query = (from e in db.Events where e.PubID == idPub select e).ToList();
 
             if (Query != null) return Query;
             return new List<Event>();

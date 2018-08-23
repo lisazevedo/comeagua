@@ -31,7 +31,7 @@ namespace comeagua.Graph
             this.Vertices.Add(v);
         }
 
-        public void InsertEdge(Vertex v1, Vertex v2, DateTime weight)
+        public void InsertEdge(Vertex v1, Vertex v2, List<DateTime> weight)
         {
             if (!v1.adj.Contains(v2))
             {
@@ -68,8 +68,10 @@ namespace comeagua.Graph
                 {
                     foreach (Event e in events)
                     {
+                        List<DateTime> acD = new List<DateTime>();
+                        acD.Add(e.Date); acD.Add(e.Hour);
                         Vertex vEvent = new Vertex { _event = e };
-                        this.InsertEdge(vPub, vEvent, vEvent._event.Date);
+                        this.InsertEdge(vPub, vEvent, acD);
                     }
                 }
             }
@@ -91,7 +93,7 @@ namespace comeagua.Graph
 
                     foreach (Edge e in this.Edges)
                     {
-                        if (e.V1 == bp && e.Weight.Hour == DateTime.Now.Hour)
+                        if (e.V1 == vPub && e.Weight[0].DayOfYear == DateTime.Now.DayOfYear && e.Weight[1].Hour == DateTime.Now.Hour)
                         {
                             bp = vPub;
                             qtE = bp.adj.Count();
