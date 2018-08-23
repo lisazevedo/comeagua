@@ -159,4 +159,11 @@ namespace comeagua.Models
         public int Codigo { get; set; }
     }
 
+    public class CodeEventViewModel
+    {
+        [Display(Name = "Codigo")]
+        public string codeEvent { get; set; }
+    }
+
+
 }
