@@ -157,6 +157,9 @@ namespace comeagua.Models
 
         [Required]
         public int Codigo { get; set; }
+
+        [Display(Name = "Codigo")]
+        public string codeEvent { get; set; }
     }
 
     public class CodeEventViewModel

@@ -27,6 +27,11 @@ namespace comeagua.Controllers
             return View();
         }
 
+        public ActionResult EnterEvent()
+        {
+            return View();
+        }
+
 
         public ActionResult SearchPage(String busca)
         {
@@ -39,13 +44,14 @@ namespace comeagua.Controllers
         {
             var db = new ApplicationDbContext();
             db.Start();
+    
             var pub = (from p in db.Pubs where p.Name.Contains(model.BarName) select p).First();
-     
+
             if (pub != null)
             {
                 if (User.Identity.IsAuthenticated)
                 {
-                    
+
                     //model.DateEvent.Hour = model.Hour;
                     var maneger = new ApplicationUserManager(new UserStore<ApplicationUser>(new ApplicationDbContext()));
                     var MyUser = maneger.Users.Where(x => x.UserName == HttpContext.User.Identity.Name).FirstOrDefault();
@@ -76,7 +82,7 @@ namespace comeagua.Controllers
                 db.SaveChanges(); //usuario 
             }
 
-            return View(); //evento nao existe ou user nao logado
+            return RedirectToAction("Index", "Home"); //evento nao existe ou user nao logado
         }
         public ActionResult Evento(CreateEventViewModel model)
         {

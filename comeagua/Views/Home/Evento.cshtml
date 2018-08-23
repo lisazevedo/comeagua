@@ -25,7 +25,7 @@
     </header>
     <div class="div_aux">
         <div class="retangle">
-            <p class="text_evento"> Crie seu evento !!!</p>           
+            <p class="text_evento"> Crie seu evento !!!</p>
         </div>
     </div>
 
@@ -50,28 +50,28 @@
             @Html.TextBoxFor(m => m.BarName, new { @class = "example", @type = "text" })
             <p class="text_data">Data:</p>
             @*<input class="btn_date" min="2018-08-21" id="data" name="data" type="date" required>*@
-            @Html.TextBoxFor(m => m.DateEvent, new { @class = "btn_date", @type = "date", @min = "2018 - 08 - 21" })
+            @Html.TextBoxFor(m => m.DateEvent, new { @class = "btn_date", @type = "date", @min = DateTime.Now })    
             @*<input class="btn_time" type="time" id="time" name="time" required />*@
             @Html.TextBoxFor(m => m.Hour, new { @class = "btn_time", @type = "time" })
             <p class="text_time">Horário:</p>
             <a><input type="submit" class="btn_register" value="Criar o evento" onclick="alert('Código do evento: @ViewBag.CodigoEvento')" /></a>
-            
+
         </form>
         using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
         {
             @Html.AntiForgeryToken()
         }
-     }
-     else
-     {
+    }
+    else
+    {
         @Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
         <input type="submit" class="btn_register" value="Faça o login para criar um evento" />
-     }
-        <form class="findEvent" action="/Home/FindEvent">
-            <p class="text">Código para entrar em um evento:</p>
-            @*Html.TextBoxFor(m => m.)*@
-        </form>
-    
+    }
+
+    @Html.ActionLink("EnterEvent", "EnterEvent", "Home", routeValues: null, htmlAttributes: new { id = "enterEventLink" })
+    <!--<input style="margin-left: 50px" submit" class="btn_enter_event" value="Entre em um evento criado por algúem" />-->
+
+
 </body>
 
 <style>
@@ -264,6 +264,17 @@
         color: orange;
         margin-top: 0px;
         margin-left: 400px;
+        font-size: 130%;
+        border: 2px solid;
+        border-radius: 30px;
+        padding: 6px;
+    }
+    #enterEventLink {
+        position: absolute;
+        font-family: Poppins;
+        color: orange;
+        margin-top: 0px;
+        margin-left: 520px;
         font-size: 130%;
         border: 2px solid;
         border-radius: 30px;
