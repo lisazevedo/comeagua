@@ -11,6 +11,7 @@ namespace comeagua.Controllers
 {
     public class HomeController : Controller
     {
+        string codigoale;
         public ActionResult Index()
         {
             if (User.Identity.IsAuthenticated)
@@ -26,7 +27,7 @@ namespace comeagua.Controllers
             return View();
         }
 
-     
+
         public ActionResult SearchPage(String busca)
         {
             ViewBag.Busca = busca;
@@ -34,16 +35,13 @@ namespace comeagua.Controllers
             return View();
         }
 
-        public ActionResult CreateEvent(CreateEventViewModel model, string code)
+        public ActionResult CreateEvent(CreateEventViewModel model)
         {
             var db = new ApplicationDbContext();
             db.Start();
+            var pub = (from p in db.Pubs where p.Name.Contains(model.BarName) select p).First();
 
-            var pub = db.Pubs.Where(p => p.Name == model.BarName).FirstOrDefault();
-
-
-            //var pub = db.Pubs.Where(p => p.ID == evento.PubID).FirstOrDefault();
-
+            //var pub = db.Pubs.Where(p => p.ID == evento.PubID).FirstOrDefault();        
             if (pub != null)
             {
                 if (User.Identity.IsAuthenticated)
@@ -51,7 +49,7 @@ namespace comeagua.Controllers
                     var maneger = new ApplicationUserManager(new UserStore<ApplicationUser>(new ApplicationDbContext()));
                     var MyUser = maneger.Users.Where(x => x.UserName == HttpContext.User.Identity.Name).FirstOrDefault();
 
-                    var evento = new Event { PubID = pub.ID, Hour = model.Hour, Date = model.DateEvent, Code = code, AspNetUserID = MyUser.Id };
+                    var evento = new Event { PubID = pub.ID, Hour = model.Hour, Date = model.DateEvent, Code = codigoale, AspNetUserID = MyUser.Id };
                     db.Events.Add(evento);
                     db.SaveChanges(); //usuario 
                     return RedirectToAction("Index", "Home");
@@ -79,7 +77,7 @@ namespace comeagua.Controllers
 
             return View(); //evento nao existe ou user nao logado
         }
-        public ActionResult Evento()
+        public ActionResult Evento(CreateEventViewModel model)
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -94,15 +92,20 @@ namespace comeagua.Controllers
                 {
                     codigoaleatorio = random.Next(0, 1000);
                     ViewBag.CodigoEvento = codigoaleatorio;
-
+                    codigoale = codigoaleatorio.ToString();
                 }
                 else
                 {
                     ViewBag.CodigoEvento = codigoaleatorio;
+                    codigoale = codigoaleatorio.ToString();
                 }
+
+
+                return View();
             }
+           
             return View();
+
         }
-      
     }
 }

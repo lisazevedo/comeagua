@@ -45,10 +45,10 @@
             </div>
         </div>
 
-        <form  class="example" action="/Home/CreateEvent">
+        <form class="example" action="/Home/CreateEvent">
 
-            <p class="text">Nome do bar:</p>           
-            @*<input type="text" placeholder="Digite o nome do bar" id="nome_bar" name="nome_bar" required>*@           
+            <p class="text">Nome do bar:</p>
+            @*<input type="text" placeholder="Digite o nome do bar" id="nome_bar" name="nome_bar" required>*@
             @Html.TextBoxFor(m => m.BarName, new { @class = "example", @type = "text" })
             <p class="text_data">Data:</p>
             @*<input class="btn_date" min="2018-08-21" id="data" name="data" type="date" required>*@
@@ -57,6 +57,7 @@
             @Html.TextBoxFor(m => m.Hour, new { @class = "btn_time", @type = "time" })
             <p class="text_time">Horário:</p>
             <a><input type="submit" class="btn_register" value="Criar o evento" onclick="alert('Código do evento: @ViewBag.CodigoEvento')" /></a>
+            
         </form>
 
             using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
