@@ -39,7 +39,11 @@ namespace comeagua.Controllers
             var db = new ApplicationDbContext();
             db.Start();
 
-            var pub = db.Pubs.Where(p => p.Name == model.BarName).FirstOrDefault();
+        
+            var pub = (from p in db.Pubs where p.Name.Contains(model.BarName) select p).First();
+
+            var codigo = ViewBag.CodigoEvento;
+            //var pub = db.Pubs.Where(p => p.Name == model.BarName).FirstOrDefault();
 
             //var pub = db.Pubs.Where(p => p.ID == evento.PubID).FirstOrDefault();
 
@@ -55,6 +59,10 @@ namespace comeagua.Controllers
                     db.SaveChanges(); //usuario 
                     return RedirectToAction("Index", "Home");
                 }
+            }
+            else
+            {
+                
             }
 
             return View();
