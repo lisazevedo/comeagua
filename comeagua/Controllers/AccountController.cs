@@ -165,7 +165,7 @@ namespace comeagua.Controllers
                 }
 
                 var user = new ApplicationUser { UserName = model.FirstName + " "+model.LastName, Email = model.Email, FirstName = model.FirstName,LastName=model.LastName
-                ,Image=model.ImagePath,Gender=model.Gender};
+                ,Image=model.ImagePath,Gender=model.Gender, BirthDate = model.Birthdate};
                 //User user1 = new User { Name = model.FirstName, LastName = model.LastName, Birthday = model.Birthday, Email = model.Email, Password = model.Password };
                 //DboUser.AddUser(user1);
                 var result = await UserManager.CreateAsync(user, model.Password);
