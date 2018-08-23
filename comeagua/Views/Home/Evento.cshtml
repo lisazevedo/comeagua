@@ -67,6 +67,11 @@
         @Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
         <input type="submit" class="btn_register" value="Faça o login para criar um evento" />
      }
+        <form class="findEvent" action="/Home/FindEvent">
+            <p class="text">Código para entrar em um evento:</p>
+            @*Html.TextBoxFor(m => m.)*@
+        </form>
+    
 </body>
 
 <style>
