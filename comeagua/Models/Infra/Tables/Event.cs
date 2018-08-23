@@ -15,7 +15,7 @@ namespace comeagua.Infra.Tables
         public int PubID { get; set; }
         public DateTime Hour { get; set; }
         public DateTime Date { get; set; }
-        public string Code { get; set; }
+        public string Code{ get; set; }
 
         public string AspNetUserID { get; set; }
         public virtual List<ApplicationUser> AspNetUsers { get; set; }

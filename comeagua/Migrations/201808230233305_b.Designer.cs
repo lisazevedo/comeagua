@@ -7,13 +7,13 @@ namespace comeagua.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Final : IMigrationMetadata
+    public sealed partial class b : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Final));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(b));
         
         string IMigrationMetadata.Id
         {
-            get { return "201808230207333_Final"; }
+            get { return "201808230233305_b"; }
         }
         
         string IMigrationMetadata.Source

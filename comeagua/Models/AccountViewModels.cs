@@ -138,4 +138,22 @@ namespace comeagua.Models
         [Display(Name = "E-mail")]
         public string Email { get; set; }
     }
+
+    public class CreateEventViewModel
+    {
+        [Required]
+        [Display(Name = "Nome do Bar")]
+        public string BarName { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
+        [Display(Name = "Data do Evento")]
+        public DateTime DateEvent { get; set; }
+
+        [Required]
+        [DataType(DataType.DateTime)]
+        [Display(Name = "Hora do Evento")]
+        public DateTime Hour { get; set; }
+    }
+
 }
