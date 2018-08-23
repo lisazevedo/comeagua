@@ -54,6 +54,7 @@ namespace comeagua.Controllers
                     var evento = new Event { PubID = pub.ID, Hour = model.Hour, Date = model.DateEvent, Code = code, AspNetUserID = MyUser.Id };
                     db.Events.Add(evento);
                     db.SaveChanges(); //usuario 
+                    return RedirectToAction("Index", "Home");
                 }
             }
 

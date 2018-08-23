@@ -1,4 +1,4 @@
-﻿@model comeagua.Infra.Tables.Event
+﻿@model comeagua.Models.CreateEventViewModel
 
 
 <!DOCTYPE html>
@@ -27,19 +27,7 @@
     </header>
     <div class="div_aux">
         <div class="retangle">
-            <p class="text_evento"> Crie seu evento !!!</p>
-            <form class="example" action="~/Home/Evento">
-                <p class="text">Nome do bar:</p>
-                <input type="text" placeholder="Digite o nome do bar" id="nome_bar" name="nome_bar" required>
-                @*@Html.TextBoxFor(m => m., new { @class = "btn_time", @type = "text" })*@
-                <p class="text_data">Data:</p>
-                <input class="btn_date" min="2018-08-21" id="data" name="data" type="date" required>
-                @*@Html.TextBoxFor(m => m.Date, new { @class = "btn_date", @type = "date", @min = "2018 - 08 - 21" })*@
-                <input class="btn_time" type="time" id="time" name="time" required />
-                @*@Html.TextBoxFor(m => m.Hour, new { @class = "btn_time", @type = "time" })*@
-                <p class="text_time">Horário:</p>
-
-            </form>
+            <p class="text_evento"> Crie seu evento !!!</p>           
         </div>
     </div>
 
@@ -56,12 +44,24 @@
                 <a class="logoff" href="javascript:document.getElementById('logoutForm').submit()">Fazer logoff</a>
             </div>
         </div>
-        <form action="~/Home/CreateEvent">
+
+        <form  class="example" action="/Home/CreateEvent">
+            <p class="text">Nome do bar:</p>
+            
+                <input type="text" placeholder="Digite o nome do bar" id="nome_bar" name="nome_bar" required>
+            
+            @*@Html.TextBoxFor(m => m., new { @class = "btn_time", @type = "text" })*@
+            <p class="text_data">Data:</p>
+            <input class="btn_date" min="2018-08-21" id="data" name="data" type="date" required>
+            @*@Html.TextBoxFor(m => m.Date, new { @class = "btn_date", @type = "date", @min = "2018 - 08 - 21" })*@
+            <input class="btn_time" type="time" id="time" name="time" required />
+            @*@Html.TextBoxFor(m => m.Hour, new { @class = "btn_time", @type = "time" })*@
+            <p class="text_time">Horário:</p>
             <a><input type="submit" class="btn_register" value="Criar o evento" onclick="alert('Código do evento: @ViewBag.CodigoEvento')" /></a>
         </form>
 
-        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-        {
+            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+            {
             @Html.AntiForgeryToken()
 
 
