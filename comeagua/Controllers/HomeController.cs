@@ -79,7 +79,7 @@ namespace comeagua.Controllers
 
             return View(); //evento nao existe ou user nao logado
         }
-        public ActionResult Evento(String nome_bar, String data, String time)
+        public ActionResult Evento()
         {
             if (User.Identity.IsAuthenticated)
             {
