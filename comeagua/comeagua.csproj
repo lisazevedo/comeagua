@@ -198,9 +198,9 @@
     <Compile Include="Graph\Edge.cs" />
     <Compile Include="Graph\Graph.cs" />
     <Compile Include="Graph\Vertex.cs" />
-    <Compile Include="Migrations\201808230537457_final.cs" />
-    <Compile Include="Migrations\201808230537457_final.Designer.cs">
-      <DependentUpon>201808230537457_final.cs</DependentUpon>
+    <Compile Include="Migrations\201808231244587_tudocertonabahia.cs" />
+    <Compile Include="Migrations\201808231244587_tudocertonabahia.Designer.cs">
+      <DependentUpon>201808231244587_tudocertonabahia.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Infra\DBO\DboEvent.cs" />
@@ -354,8 +354,8 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808230537457_final.resx">
-      <DependentUpon>201808230537457_final.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808231244587_tudocertonabahia.resx">
+      <DependentUpon>201808231244587_tudocertonabahia.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
