@@ -24,10 +24,8 @@ namespace comeagua.Controllers
                 db.SaveChanges();
             }
             
-            return View(); //evento ja existente
+            return View(); 
         }
-
-
 
         public ActionResult FindEvent(string code)
         {
