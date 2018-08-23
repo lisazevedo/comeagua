@@ -1,4 +1,5 @@
-﻿@model comeagua.Models.RegisterViewModel
+﻿@model comeagua.Infra.Tables.Event
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -24,19 +25,23 @@
             </a>
         </div>
     </header>
-    <div class="retangle">
-        <p class="text_evento"> Crie seu evento !!!</p>
-        <form class="example" action="~/Home/Evento">
-            <p class="text">Nome do bar:</p>
-            <input type="text" placeholder="Digite o nome do bar" id="nome_bar" name="nome_bar" required>
-            <p class="text_data">Data:</p>
-            <input class="btn_date" min="2018-08-21" id="data" name="data" type="date" required>
-            <input class="btn_time" type="time" id="time" name="time" required />
-            <p class="text_time">Horário:</p>
+    <div class="div_aux">
+        <div class="retangle">
+            <p class="text_evento"> Crie seu evento !!!</p>
+            <form class="example" action="~/Home/Evento">
+                <p class="text">Nome do bar:</p>
+                <input type="text" placeholder="Digite o nome do bar" id="nome_bar" name="nome_bar" required>
+                @*@Html.TextBoxFor(m => m., new { @class = "btn_time", @type = "text" })*@
+                <p class="text_data">Data:</p>
+                <input class="btn_date" min="2018-08-21" id="data" name="data" type="date" required>
+                @*@Html.TextBoxFor(m => m.Date, new { @class = "btn_date", @type = "date", @min = "2018 - 08 - 21" })*@
+                <input class="btn_time" type="time" id="time" name="time" required />
+                @*@Html.TextBoxFor(m => m.Hour, new { @class = "btn_time", @type = "time" })*@
+                <p class="text_time">Horário:</p>
 
-        </form>
+            </form>
+        </div>
     </div>
-
 
     @using Microsoft.AspNet.Identity
     @if (Request.IsAuthenticated)
@@ -51,7 +56,10 @@
                 <a class="logoff" href="javascript:document.getElementById('logoutForm').submit()">Fazer logoff</a>
             </div>
         </div>
-        <input type="submit" class="btn_register" value="Criar o evento" />
+        <form action="~/Home/CreateEvent">
+            <a><input type="submit" class="btn_register" value="Criar o evento" onclick="alert('Código do evento: @ViewBag.CodigoEvento')" /></a>
+        </form>
+
         using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
         {
             @Html.AntiForgeryToken()
@@ -64,7 +72,7 @@
     {
 
         @Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
-        <input type="submit" class="btn_register" value="Faça o login para criar um evento"/>
+        <input type="submit" class="btn_register" value="Faça o login para criar um evento" />
     }
 
 </body>
@@ -75,6 +83,7 @@
         margin: 0;
         overflow-y: hidden;
     }
+
     form.example input[type=text] {
         position: absolute;
         padding: 15px;
@@ -105,11 +114,13 @@
         margin-left: 905px;
         border-radius: 10px;
     }
-    #logo_id {
-        width: 150px;
-        margin-top: 5px;
-        position: absolute;
+
+    .logo_id {
+        position: initial;
+        width: 120px;
+        margin-top: 0px;
     }
+
     .retangle {
         position: absolute;
         background-color: orange;
@@ -119,12 +130,18 @@
         justify-content: center;
         align-items: center;
     }
+
+    .div_aux {
+        margin-top: 100px;
+    }
+
     .text_evento {
         font-family: Poppins;
-        color:white;
-        font-size:30px;
+        color: white;
+        font-size: 30px;
         margin-left: 500px;
     }
+
     .text {
         font-family: Poppins;
         color: white;
@@ -132,6 +149,7 @@
         margin-left: 30px;
         margin-top: 100px;
     }
+
     .btn_date {
         position: absolute;
         margin-left: 300px;
@@ -140,14 +158,16 @@
         border-color: black;
         outline: 0;
     }
+
     .text_data {
-        position:absolute;
+        position: absolute;
         font-family: Poppins;
         color: white;
         font-size: 30px;
         margin-left: 30px;
         margin-top: 180px;
     }
+
     .text_time {
         position: absolute;
         font-family: Poppins;
@@ -156,6 +176,7 @@
         margin-left: 30px;
         margin-top: 260px;
     }
+
     .btn_time {
         position: absolute;
         margin-left: 300px;
@@ -164,18 +185,21 @@
         border-color: black;
         outline: 0;
     }
+
     .btn_register {
-        position:absolute;
+        position: absolute;
         border: 2px solid;
         border-radius: 30px;
-        border-color:black;
-        background: white;      
-        margin-left:550px;
-        margin-top: 400px;    
+        border-color: black;
+        background: white;
+        margin-left: 550px;
+        margin-top: 400px;
     }
+
         .btn_register:hover {
             color: lightcoral;
         }
+
     .dropbtn {
         padding: 16px;
         font-size: 16px;
@@ -235,4 +259,21 @@
     .image_profile {
         max-width: 300px;
     }
+
+    #loginLink {
+        position: absolute;
+        font-family: Poppins;
+        color: orange;
+        margin-top: 0px;
+        margin-left: 400px;
+        font-size: 130%;
+        border: 2px solid;
+        border-radius: 30px;
+        padding: 6px;
+    }
+
+        #loginLink:hover {
+            color: lightcoral;
+            text-decoration: none;
+        }
 </style>
