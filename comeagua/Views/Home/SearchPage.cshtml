@@ -17,7 +17,7 @@
             <a href='@Url.Action("Index", "Home")'>
                 <img class="logo_id" src='@Url.Content("~/assets/logo.png")' />
             </a>
-        </div>       
+        </div>
     </header>
     <p id="res">Resultados para: @ViewBag.Busca</p>
     <div id="map"></div>
@@ -27,11 +27,11 @@
         var infowindow;
         var pp = "@ViewBag.Busca";
         var listPlaces = [];
-        
+
         function initialize() {
             var latitude;
             var longitude;
-            
+
             var geocoder = new google.maps.Geocoder();
             var _address = pp + " - Salvador";
 
@@ -40,7 +40,7 @@
                 if (status == google.maps.GeocoderStatus.OK) {
                     latitude = parseFloat(results[0].geometry.location.lat());
                     longitude = parseFloat(results[0].geometry.location.lng());
-                    
+
                     var place = new google.maps.LatLng(latitude, longitude);
                     //console.log(place);
 
@@ -74,7 +74,7 @@
 
                     listPlaces.push(place);
                 }
-                
+
             }
         }
 
@@ -117,13 +117,13 @@
                 html += '<p>';
                 html += data[i].vicinity;
                 html += '</p>';
-                
+
                 html += '<br/>';
             }
             html += '</ol></table>';
             return html;
         }
-       
+
         function insertHTML(id, html) {
             var el = document.getElementById(id);
 
@@ -146,23 +146,23 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCW8TfRA01eXKqE49NioETqvyDdw5W_zyQ&libraries=places&callback=initialize"
             async defer></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/geocode/json?address=_adress&key=AIzaSyCW8TfRA01eXKqE49NioETqvyDdw5W_zyQ"></script>
-    <div id="tabledata"></div>
     @using comeagua.Graph
-    @{  
+    @{
         Graph g = new Graph();
-     }
+    }
     <div id="best_pub">
         <a style="color: red">Este Bar possui eventos marcados para hoje: </a>
         <a style="color: black">@g.BestPub(ViewBag.Busca)</a>
     </div>
+    <div id="tabledata"></div>
 </body>
 </html>
 <style>
 
     #best_pub{
-        margin-left: 80px;
+        margin-left: 24px;
         margin-top: 24px;
-        margin-bottom: 24px;
+        margin-bottom: 44px;
     }
 
     #map {

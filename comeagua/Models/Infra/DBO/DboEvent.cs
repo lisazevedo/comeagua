@@ -31,20 +31,17 @@ namespace comeagua.Models.Infra.DBO
 
         public static void DeleteEvent(Event evento)
         {
-
         }
 
+        //public static void UpdateEvent(Event evento, ApplicationUser user)
+        //{
+        //    var db = new ApplicationDbContext();
+        //    db.Start();
 
+        //    evento.Guests.Add(user);
 
-        public static void UpdateEvent(Event evento, ApplicationUser user)
-        {
-            var db = new ApplicationDbContext();
-            db.Start();
-
-            evento.Guests.Add(user);
-
-            db.SaveChanges();
-        }
+        //    db.SaveChanges();
+        //}
 
         public static List<Event> GetEvents(int idPub)
         {

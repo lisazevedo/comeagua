@@ -60,11 +60,12 @@ namespace comeagua.Graph
 
             foreach (Pub p in pubs)
             {
+                Vertex vPub = new Vertex { _pub = p };
+                this.InsertVertex(vPub);
+
                 List<Event> events = DboEvent.GetEvents(p.ID);
                 if (events.Count() > 0)
                 {
-                    Vertex vPub = new Vertex { _pub = p };
-                    this.InsertVertex(vPub);
                     foreach (Event e in events)
                     {
                         Vertex vEvent = new Vertex { _event = e };
@@ -74,28 +75,38 @@ namespace comeagua.Graph
             }
         }
 
-        public void SearchPub()
+        public string SearchPub()
         {
             if (this.Vertices.Count() > 0)
             {
+                Vertex bp = Vertices.First();
+                int qtE = 0;
                 foreach (Vertex vPub in this.Vertices)
                 {
-                    foreach (Vertex vEvent in vPub.adj)
+                    if (vPub.adj.Count() > qtE)
                     {
-                        //vEvent._event.Date.
+                        bp = vPub;
+                        qtE = bp.adj.Count();
+                    }
+
+                    foreach (Edge e in this.Edges)
+                    {
+                        if (e.V1 == bp && e.Weight.Hour == DateTime.Now.Hour)
+                        {
+                            bp = vPub;
+                            qtE = bp.adj.Count();
+                        }
                     }
                 }
+                if (bp.adj.Count() > 0) return bp._pub.Name;
             }
-           
+            return "Sem eventos para esta região!";
         }
 
         public string BestPub(string place)
         {
             this.Start(place);
-            this.SearchPub();
-
-            //if (pubs.Count() > 0) return pubs[0].Name;
-            return "Estimativa de bar não encontrada";
+            return this.SearchPub();
         }
 
     }
