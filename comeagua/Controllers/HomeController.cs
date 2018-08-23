@@ -41,7 +41,6 @@ namespace comeagua.Controllers
 
             var pub = db.Pubs.Where(p => p.Name == model.BarName).FirstOrDefault();
 
-
             //var pub = db.Pubs.Where(p => p.ID == evento.PubID).FirstOrDefault();
 
             if (pub != null)
