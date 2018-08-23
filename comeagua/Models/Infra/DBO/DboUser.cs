@@ -11,22 +11,22 @@ namespace comeagua.Infra.DBO
 {
     public static class DboUser
     {
-        public static string AddUser(User user)
-        {
-            var db = new ApplicationDbContext();
-            db.Start();
-            //User user = new User { Name = firstname, LastName = lastname, Birthday = birthday, Email = email, Password = password};
-            var Query = (from Log in db.Users where Log.Email == user.Email select Log);
+        //public static string AddUser(User user)
+        //{
+        //    var db = new ApplicationDbContext();
+        //    db.Start();
+        //    User user = new User { Name = firstname, LastName = lastname, Birthday = birthday, Email = email, Password = password };
+        //    var Query = (from Log in db.Users where Log.Email == user.Email select Log);
 
-            if (Query is null)
-            {
-                db.Users.Add(user);
+        //    if (Query is null)
+        //    {
+        //        db.Users.Add(user);
 
-                db.SaveChanges();
-                return "Usuario criado com sucesso!";
-            }
-            return "E-mail já cadastrado, tente novamente com outro e-mail.";
-        }
+        //        db.SaveChanges();
+        //        return "Usuario criado com sucesso!";
+        //    }
+        //    return "E-mail já cadastrado, tente novamente com outro e-mail.";
+        //}
 
         //public static void deleteuser(int id)
         //{

@@ -209,6 +209,10 @@
     <Compile Include="Migrations\201808220054551_Rate Elemnt.Designer.cs">
       <DependentUpon>201808220054551_Rate Elemnt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808222237362_MTest.cs" />
+    <Compile Include="Migrations\201808222237362_MTest.Designer.cs">
+      <DependentUpon>201808222237362_MTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Infra\DBO\DboEvent.cs" />
     <Compile Include="Models\Infra\DBO\DboPub.cs" />
@@ -382,6 +386,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808220054551_Rate Elemnt.resx">
       <DependentUpon>201808220054551_Rate Elemnt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808222237362_MTest.resx">
+      <DependentUpon>201808222237362_MTest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using comeagua.Infra.Tables;
+using comeagua.Models;
 
 namespace comeagua.Graph
 {
@@ -52,6 +54,31 @@ namespace comeagua.Graph
         {
             Edge edge = (from a in this.Edges where a.V1 == v1 && a.V2 == v2 select a).FirstOrDefault();
             return edge;
+        }
+
+        public static List<Pub> GetPubs(string place)
+        {
+            var db = new ApplicationDbContext();
+            db.Start();
+
+            var Query = (from p in db.Pubs where p.Address.Contains(place) select p).ToList(); ;
+
+            if (Query != null) return Query;
+            return new List<Pub>();
+        }
+
+        public string BestPub(string place)
+        {
+            List<Pub> pubs = GetPubs(place);
+
+            //foreach (Pub p in pubs)
+            //{
+            //    Vertex v1 = new Vertex(); v1.pub = p;
+            //    Vertex v2 = new Vertex();
+            //    this.InsertEdge(v1, v2, 3);
+            //}
+            if (pubs.Count() > 0) return pubs[0].Name;
+            return "Estimativa de bar não encontrada";
         }
 
     }
