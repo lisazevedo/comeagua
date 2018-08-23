@@ -313,7 +313,6 @@
     <Content Include="Views\Account\SendCode.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Home\SearchPage.cshtml" />
-    <Content Include="Views\Facebook\Posts.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
