@@ -60,12 +60,12 @@ namespace comeagua.Controllers
             return View();
         }
 
-        public ActionResult FindEvent(string code)
+        public ActionResult FindEvent(CodeEventViewModel model)
         {
             var db = new ApplicationDbContext();
 
             db.Start();
-            var evento = db.Events.Single(e => e.Code.Equals(code));
+            var evento = db.Events.Single(e => e.Code.Equals(model.codeEvent));
 
             if (User.Identity.IsAuthenticated && evento != null)
             {
