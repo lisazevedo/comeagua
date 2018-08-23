@@ -189,6 +189,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -229,7 +230,6 @@
     <Compile Include="Models\Infra\Tables\Pub.cs" />
     <Compile Include="Models\Infra\Tables\Review.cs" />
     <Compile Include="Models\Infra\Tables\Tag.cs" />
-    <Compile Include="Models\Infra\Tables\User.cs" />
     <Compile Include="Models\Infra\Tables\Facebook\FacebookUser.cs" />
     <Compile Include="Models\Infra\Tables\Week.cs" />
     <Compile Include="Models\AccountViewModels.cs" />

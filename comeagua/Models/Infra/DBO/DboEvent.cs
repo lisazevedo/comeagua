@@ -4,7 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using comeagua.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 
 namespace comeagua.Models.Infra.DBO
 {
@@ -28,6 +33,7 @@ namespace comeagua.Models.Infra.DBO
         {
 
         }
+
 
 
         public static void UpdateEvent(Event evento, ApplicationUser user)
@@ -54,6 +60,27 @@ namespace comeagua.Models.Infra.DBO
 
             return eventos;
         }
+
+        //public static bool FindEvent(string code)
+        //{
+        //    var db = new ApplicationDbContext();
+
+        //    db.Start();
+        //    var evento = db.Events.Single(e => e.Code.Equals(code));
+
+        //    if (User.Identity.IsAuthenticated && evento != null)
+        //    {
+        //        var maneger = new ApplicationUserManager(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+        //        var MyUser = maneger.Users.Where(x => x.UserName == HttpContext.User.Identity.Name).FirstOrDefault();
+         
+        //        evento.Guests.Add(MyUser);
+        //        db.SaveChanges();
+
+        //        return true;
+        //    }
+            
+        //    return false; //evento nao existe ou user nao logado
+        //}
 
     }
 }

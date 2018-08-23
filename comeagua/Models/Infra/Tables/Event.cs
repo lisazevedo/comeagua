@@ -17,6 +17,7 @@ namespace comeagua.Infra.Tables
         public DateTime Hour { get; set; }
         public DateTime Date { get; set; }
 
+        public string Code { get; set; }
         public virtual List<ApplicationUser> Guests { get; set; }
     }
 }
