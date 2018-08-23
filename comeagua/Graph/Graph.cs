@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using comeagua.Infra.DBO;
 using comeagua.Infra.Tables;
 using comeagua.Models;
+using comeagua.Models.Infra.DBO;
 
 namespace comeagua.Graph
 {
@@ -29,16 +31,12 @@ namespace comeagua.Graph
             this.Vertices.Add(v);
         }
 
-        public void InsertEdge(Vertex v1, Vertex v2, int weight)
+        public void InsertEdge(Vertex v1, Vertex v2, DateTime weight)
         {
             if (!v1.adj.Contains(v2))
             {
                 this.Edges.Add(new Edge { V1 = v1, V2 = v2, Weight = weight });
                 v1.adj.Add(v2);
-
-                this.Edges.Add(new Edge { V1 = v2, V2 = v1, Weight = weight });
-                v2.adj.Add(v1);
-
             }
         }
 
@@ -56,28 +54,47 @@ namespace comeagua.Graph
             return edge;
         }
 
-        public static List<Pub> GetPubs(string place)
+        public void Start(string place)
         {
-            var db = new ApplicationDbContext();
-            db.Start();
+            List<Pub> pubs = DboPub.GetPubs(place);
 
-            var Query = (from p in db.Pubs where p.Address.Contains(place) select p).ToList(); ;
+            foreach (Pub p in pubs)
+            {
+                List<Event> events = DboEvent.GetEvents(p.ID);
+                if (events.Count() > 0)
+                {
+                    Vertex vPub = new Vertex { _pub = p };
+                    this.InsertVertex(vPub);
+                    foreach (Event e in events)
+                    {
+                        Vertex vEvent = new Vertex { _event = e };
+                        this.InsertEdge(vPub, vEvent, vEvent._event.Date);
+                    }
+                }
+            }
+        }
 
-            if (Query != null) return Query;
-            return new List<Pub>();
+        public void SearchPub()
+        {
+            if (this.Vertices.Count() > 0)
+            {
+                foreach (Vertex vPub in this.Vertices)
+                {
+                    foreach (Vertex vEvent in vPub.adj)
+                    {
+                        //vEvent._event.Date.
+                    }
+                }
+            }
+           
         }
 
         public string BestPub(string place)
         {
-            List<Pub> pubs = GetPubs(place);
+            this.Start(place);
+            this.SearchPub();
 
-            //foreach (Pub p in pubs)
-            //{
-            //    Vertex v1 = new Vertex(); v1.pub = p;
-            //    Vertex v2 = new Vertex();
-            //    this.InsertEdge(v1, v2, 3);
-            //}
-            if (pubs.Count() > 0) return pubs[0].Name;
+            //if (pubs.Count() > 0) return pubs[0].Name;
             return "Estimativa de bar não encontrada";
         }
 

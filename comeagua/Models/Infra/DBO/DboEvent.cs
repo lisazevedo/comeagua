@@ -2,59 +2,75 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using comeagua.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace comeagua.Models.Infra.DBO
 {
     public static class DboEvent
     {
-        //public static bool CreateEvent(Event evento)
-        //{
-        //    var db = new ApplicationDbContext();
-        //    db.Start();
-        //    var Query = (from ev in db.Events where ev.Hour == evento.Hour select ev);
+        public static bool CreateEvent(Event evento)
+        {
+            var db = new ApplicationDbContext();
+            db.Start();
+            var Query = (from ev in db.Events where ev.Hour == evento.Hour select ev);
 
-        //    if (Query is null)
-        //    {
-        //        db.SaveChanges();
-        //        return true; //evento criado
-        //    }
-        //    return false; //evento ja existente
-        //}
+            if (Query is null)
+            {
+                db.SaveChanges();
+                return true; //evento criado
+            }
+            return false; //evento ja existente
+        }
 
-        //public static void DeleteEvent(Event evento)
-        //{
+        public static void DeleteEvent(Event evento)
+        {
 
-        //}
+        }
 
 
 
-        //public static void UpdateEvent(Event evento, ApplicationUser user)
-        //{
-        //    var db = new ApplicationDbContext();
-        //    db.Start();
+        public static void UpdateEvent(Event evento, ApplicationUser user)
+        {
+            var db = new ApplicationDbContext();
+            db.Start();
 
-        //    evento.Guests.Add(user);
+            evento.Guests.Add(user);
 
-        //    db.SaveChanges();
-        //}
+            db.SaveChanges();
+        }
 
-        //public static List<Event> ListEvents(string FirstNameCreator, string LastNameCreator)
-        //{
-        //    var db = new ApplicationDbContext();
+        public static List<Event> GetEvents(int idPub)
+        {
+            var db = new ApplicationDbContext();
+            db.Start();
 
-        //    db.Start();
+            var Query = (from e in db.Events where e.PubID == idPub && e.Date == DateTime.Now select e).ToList();
 
-        //    var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            if (Query != null) return Query;
+            return new List<Event>();
+        }
 
-        //    var EventCreator = manager.Users.Single(ec => ec.FirstName.Equals(FirstNameCreator) && ec.LastName.Equals(LastNameCreator));
+        public static List<Event> ListEvents(string FirstNameCreator, string LastNameCreator)
+        {
+            var db = new ApplicationDbContext();
 
-        //    List<Event> eventos = (from ev in db.Events where (ev.AspNetUserID.Equals(EventCreator.Id)) select ev).ToList();
+            db.Start();
 
-        //    return eventos;
-        //}
+            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+
+            var EventCreator = manager.Users.Single(ec => ec.FirstName.Equals(FirstNameCreator) && ec.LastName.Equals(LastNameCreator));
+
+            List<Event> eventos = (from ev in db.Events where (ev.AspNetUserID.Equals(EventCreator.Id)) select ev).ToList();
+
+            return eventos;
+        }
 
         //public static bool FindEvent(string code)
         //{

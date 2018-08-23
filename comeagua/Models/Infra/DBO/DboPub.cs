@@ -33,6 +33,17 @@ namespace comeagua.Infra.DBO
 
         }
 
+        public static List<Pub> GetPubs(string place)
+        {
+            var db = new ApplicationDbContext();
+            db.Start();
+
+            var Query = (from p in db.Pubs where p.Address.Contains(place) select p).ToList();
+
+            if (Query != null) return Query;
+            return new List<Pub>();
+        }
+
         public void UpdateUser(Pub pub) //pq o nome UpdateUser?
         {
             var db = new ApplicationDbContext();
