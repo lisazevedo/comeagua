@@ -24,6 +24,7 @@ namespace comeagua.Controllers
 
             return View();
         }
+
      
         public ActionResult SearchPage(String busca)
         {
