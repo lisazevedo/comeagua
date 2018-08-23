@@ -24,10 +24,8 @@ namespace comeagua.Controllers
                 db.SaveChanges();
             }
             
-            return View(); //evento ja existente
+            return View(); 
         }
-
-
 
         public ActionResult FindEvent(string code)
         {
@@ -41,7 +39,7 @@ namespace comeagua.Controllers
                 var maneger = new ApplicationUserManager(new UserStore<ApplicationUser>(new ApplicationDbContext()));
                 var MyUser = maneger.Users.Where(x => x.UserName == HttpContext.User.Identity.Name).FirstOrDefault();
 
-                evento.Guests.Add(MyUser);
+                evento.AspNetUsers.Add(MyUser);
                 db.SaveChanges(); //usuario 
             }
 

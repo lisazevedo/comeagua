@@ -7,7 +7,9 @@ namespace comeagua.Infra.Tables
 {
     public class ErrorLog
     {
-        string error;
-        DateTime Date;
+        public int ID { get; set; }
+        public string Error { get; set; }
+        public DateTime Date { get; set; }
+        
     }
 }

@@ -4,7 +4,6 @@ using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using comeagua.Infra.Tables;
-using comeagua.Models.Infra.Tables;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -55,9 +54,10 @@ namespace comeagua.Models
         //public virtual DbSet<Tag> Tags { get; set; }
         // public virtual DbSet<Tag_Pub>Tags_Pubs { get; set; }
         public virtual DbSet<Event> Events { get; set; }
-        public virtual DbSet<Holiday> Holidays { get; set; }
-        public virtual DbSet<Guest> Guests { get; set; }
-        public virtual DbSet<Week> Weeks { get; set; }
-        public virtual DbSet<Review> Reviews { get; set; }
+        //public virtual DbSet<Holiday> Holidays { get; set; }
+        //public virtual DbSet<Guest> Guests { get; set; }
+        //public virtual DbSet<Week> Weeks { get; set; }
+        //public virtual DbSet<Review> Reviews { get; set; }
+        public virtual DbSet<ErrorLog> ErrorLogs { get; set; }
     }
 }
