@@ -155,7 +155,7 @@ namespace comeagua.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (model.ImageFile != null  ){
+                if (model.ImageFile != null){
                     string fileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
                     string extension = Path.GetExtension(model.ImageFile.FileName);
                     fileName = fileName + extension;

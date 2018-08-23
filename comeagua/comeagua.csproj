@@ -198,9 +198,9 @@
     <Compile Include="Graph\Edge.cs" />
     <Compile Include="Graph\Graph.cs" />
     <Compile Include="Graph\Vertex.cs" />
-    <Compile Include="Migrations\201808230207333_Final.cs" />
-    <Compile Include="Migrations\201808230207333_Final.Designer.cs">
-      <DependentUpon>201808230207333_Final.cs</DependentUpon>
+    <Compile Include="Migrations\201808230233305_b.cs" />
+    <Compile Include="Migrations\201808230233305_b.Designer.cs">
+      <DependentUpon>201808230233305_b.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Infra\DBO\DboEvent.cs" />
@@ -354,8 +354,8 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808230207333_Final.resx">
-      <DependentUpon>201808230207333_Final.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808230233305_b.resx">
+      <DependentUpon>201808230233305_b.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
