@@ -1,4 +1,4 @@
-﻿using comeagua.Models.Infra.Tables;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -14,17 +14,7 @@ namespace comeagua.Infra.Tables
         public string Address { get; set; }
         public float Rate { get; set; }
         public string ImagePath { get; set; }
-        //public int Tag_PubID { get; set; }
-        [Index(IsUnique = true)]
-        //public int AddressID { get; set; }
-        //public virtual Address Address { get; set; }
-        public int ReviewID { get; set; }
 
-        //public virtual List<Address>Addresses  { get; set; }
-        public virtual List<Photo> Photos { get; set; }
-        public virtual List<Operation> Operations { get; set; }
-        public virtual List<Review> Reviews { get; set; }
-        public virtual List<Tag> Tags { get; set; }
         public virtual List<Event> Events { get; set; }
     }
 }

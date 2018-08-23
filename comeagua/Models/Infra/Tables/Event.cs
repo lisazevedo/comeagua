@@ -13,11 +13,11 @@ namespace comeagua.Infra.Tables
         //public bool Private { get; set; }
 
         public int PubID { get; set; }
-        public string AspNetUserID { get; set; }
         public DateTime Hour { get; set; }
         public DateTime Date { get; set; }
-
         public string Code { get; set; }
-        public virtual List<ApplicationUser> Guests { get; set; }
+
+        public string AspNetUserID { get; set; }
+        public virtual List<ApplicationUser> AspNetUsers { get; set; }
     }
 }

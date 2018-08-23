@@ -198,40 +198,17 @@
     <Compile Include="Graph\Edge.cs" />
     <Compile Include="Graph\Graph.cs" />
     <Compile Include="Graph\Vertex.cs" />
-    <Compile Include="Migrations\201808211828010_UpdateAddress.cs" />
-    <Compile Include="Migrations\201808211828010_UpdateAddress.Designer.cs">
-      <DependentUpon>201808211828010_UpdateAddress.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808220038169_Mudança de ReviewId para FLoat.cs" />
-    <Compile Include="Migrations\201808220038169_Mudança de ReviewId para FLoat.Designer.cs">
-      <DependentUpon>201808220038169_Mudança de ReviewId para FLoat.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808220054551_Rate Elemnt.cs" />
-    <Compile Include="Migrations\201808220054551_Rate Elemnt.Designer.cs">
-      <DependentUpon>201808220054551_Rate Elemnt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808222237362_MTest.cs" />
-    <Compile Include="Migrations\201808222237362_MTest.Designer.cs">
-      <DependentUpon>201808222237362_MTest.cs</DependentUpon>
+    <Compile Include="Migrations\201808230207333_Final.cs" />
+    <Compile Include="Migrations\201808230207333_Final.Designer.cs">
+      <DependentUpon>201808230207333_Final.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Infra\DBO\DboEvent.cs" />
     <Compile Include="Models\Infra\DBO\DboPub.cs" />
     <Compile Include="Models\Infra\DBO\DboUser.cs" />
-    <Compile Include="Models\Infra\Tables\Address.cs" />
     <Compile Include="Models\Infra\Tables\Event.cs" />
-    <Compile Include="Models\Infra\Tables\Facebook\Data.cs" />
-    <Compile Include="Models\Infra\Tables\Facebook\Picture.cs" />
-    <Compile Include="Models\Infra\Tables\Guest.cs" />
-    <Compile Include="Models\Infra\Tables\Holiday.cs" />
     <Compile Include="Models\Infra\Tables\ErrorLog.cs" />
-    <Compile Include="Models\Infra\Tables\Operation.cs" />
-    <Compile Include="Models\Infra\Tables\Photo.cs" />
     <Compile Include="Models\Infra\Tables\Pub.cs" />
-    <Compile Include="Models\Infra\Tables\Review.cs" />
-    <Compile Include="Models\Infra\Tables\Tag.cs" />
-    <Compile Include="Models\Infra\Tables\Facebook\FacebookUser.cs" />
-    <Compile Include="Models\Infra\Tables\Week.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -378,17 +355,8 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808211828010_UpdateAddress.resx">
-      <DependentUpon>201808211828010_UpdateAddress.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808220038169_Mudança de ReviewId para FLoat.resx">
-      <DependentUpon>201808220038169_Mudança de ReviewId para FLoat.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808220054551_Rate Elemnt.resx">
-      <DependentUpon>201808220054551_Rate Elemnt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808222237362_MTest.resx">
-      <DependentUpon>201808222237362_MTest.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808230207333_Final.resx">
+      <DependentUpon>201808230207333_Final.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
